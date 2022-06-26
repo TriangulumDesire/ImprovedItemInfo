@@ -28,6 +28,13 @@ namespace ImprovedItemInfo.Items.Globals
         public ImprovedCriticalChanceTooltip()
         {
             // TODO: Add damage classes from other mods into lookup table (rogue, clicker, healer, bard, et cetera).
+            if (ModLoader.TryGetMod("ClickerClass", out _))
+            {
+                if (ModContent.TryFind("ClickerClass/ClickerDamage", out DamageClass clickerDamage))
+                {
+                    _damageClassLookup.Add(clickerDamage, clickerDamage);
+                }
+            }
         }
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -59,7 +66,9 @@ namespace ImprovedItemInfo.Items.Globals
                     int totalCriticalChance = GetTotalCriticalChanceFromTooltip(tooltipData);
                     int initialCriticalChance = 0;
 
-                    if (item.ModItem is null)
+                    string itemModName = item.ModItem?.Mod?.Name;
+
+                    if (itemModName is null || !itemModName.Equals("CalamityMod"))
                     {
                         Item unmodifiedItem = new();
                         unmodifiedItem.CloneDefaults(item.type);
@@ -70,7 +79,7 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         var matchedDamageClassCriticalChances = from damageClassEntry in _damageClassLookup
                                                                 where damageClassEntry.Key == item.DamageType
-                                                                select (int)player.GetCritChance(damageClassEntry.Value);
+                                                                select (int)player.GetTotalCritChance(damageClassEntry.Value);
 
                         if (!matchedDamageClassCriticalChances.Any())
                         {
@@ -78,8 +87,9 @@ namespace ImprovedItemInfo.Items.Globals
                         }
 
                         int classCriticalChance = matchedDamageClassCriticalChances.First();
+                        var test = player.GetTotalCritChance(DamageClass.Generic);
 
-                        initialCriticalChance = totalCriticalChance - (int)player.GetCritChance(DamageClass.Generic) - classCriticalChance + BaseCriticalChance;
+                        initialCriticalChance = totalCriticalChance - classCriticalChance + BaseCriticalChance;
                     }
 
                     int criticalChanceDelta = totalCriticalChance - initialCriticalChance;
