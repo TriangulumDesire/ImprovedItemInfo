@@ -8,30 +8,31 @@ using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
 {
-    public class GlobalItemImprovedDamageTooltip
+    public class ImprovedManaUseTooltip
         : GlobalItem
     {
-        private const string DamageTooltipName = "Damage";
+        private const string ManaUseTooltipName = "UseMana";
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (item.damage <= 0 || Main.netMode == NetmodeID.Server)
+            if (item.mana <= 0 || Main.netMode == NetmodeID.Server)
             {
                 return;
             }
 
             foreach (TooltipLine tooltip in tooltips)
             {
-                if (!tooltip.Name.Equals(DamageTooltipName))
+                if (!tooltip.Name.Equals(ManaUseTooltipName))
                 {
                     continue;
                 }
 
                 try
                 {
-                    string[] tooltipData = tooltip.Text.Split(' ');
+                    string[] tooltipLines = tooltip.Text.Split('\n');
+                    string[] tooltipData = tooltipLines[0].Split(' ');
 
-                    if (!IsDamageTooltip(tooltipData))
+                    if (!IsManaUseTooltip(tooltipData))
                     {
                         return;
                     }
@@ -39,17 +40,17 @@ namespace ImprovedItemInfo.Items.Globals
                     Item unmodifiedItem = new();
                     unmodifiedItem.CloneDefaults(item.type);
 
-                    int totalDamage = GetTotalDamageFromTooltip(tooltipData);
-                    int damageDelta = totalDamage - unmodifiedItem.damage;
+                    int totalManaUse = GetTotalManaUseFromTooltip(tooltipData);
+                    int manaUseDelta = totalManaUse - unmodifiedItem.mana;
 
-                    if (damageDelta != 0)
+                    if (manaUseDelta != 0)
                     {
-                        ReconstructTooltip(tooltip, tooltipData, damageDelta);
+                        ReconstructTooltip(tooltip, tooltipData, tooltipLines, manaUseDelta);
 
-                        if (ImprovedItemInfo.IsDamageColoured)
+                        if (ImprovedItemInfo.IsManaUseColoured)
                         {
                             tooltip.IsModifier = true;
-                            tooltip.IsModifierBad = damageDelta < 0;
+                            tooltip.IsModifierBad = manaUseDelta > 0;
                         }
                     }
                 }
@@ -60,40 +61,45 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private bool IsDamageTooltip(in string[] tooltipData)
+        private bool IsManaUseTooltip(in string[] tooltipData)
         {
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US":
-                    return tooltipData[^1].Equals("damage");
+                    return tooltipData[^1].Equals("mana");
 
                 default:
                     return false;
             }
         }
 
-        private int GetTotalDamageFromTooltip(in string[] tooltipData)
+        private int GetTotalManaUseFromTooltip(in string[] tooltipData)
         {
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US":
-                    return int.Parse(tooltipData[0]);
+                    return int.Parse(tooltipData[1]);
 
                 default:
                     return 0;
             }
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int damageDelta)
+        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in string[] tooltipLines, in int manaUseDelta)
         {
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US":
-                    tooltip.Text = $"{tooltipData[0]} ({(damageDelta > 0 ? "+" : "-")}{Math.Abs(damageDelta)})";
+                    tooltip.Text = $"{tooltipData[0]} {tooltipData[1]} ({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
 
-                    foreach (string tooltipElement in tooltipData.Skip(1))
+                    foreach (string tooltipElement in tooltipData.Skip(2))
                     {
                         tooltip.Text += " " + tooltipElement;
+                    }
+
+                    foreach (string tooltipLine in tooltipLines.Skip(1))
+                    {
+                        tooltip.Text += "\n" + tooltipLine;
                     }
 
                     break;

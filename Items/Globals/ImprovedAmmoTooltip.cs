@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
 {
-    public class GlobalItemImprovedAmmoTooltip
+    public class ImprovedAmmoTooltip
         : GlobalItem
     {
         private const string AmmoTooltipName = "Ammo";

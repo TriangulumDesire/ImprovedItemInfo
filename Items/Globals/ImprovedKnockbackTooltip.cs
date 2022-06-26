@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
 {
-    public class GlobalItemImprovedKnockbackTooltip
+    public class ImprovedKnockbackTooltip
         : GlobalItem
     {
         private const string KnockbackTooltipName = "Knockback";

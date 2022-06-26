@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
 {
-    public class GlobalItemImprovedCriticalChanceTooltip
+    public class ImprovedCriticalChanceTooltip
         : GlobalItem
     {
         private const string CriticalChanceTooltipName = "CritChance";
@@ -25,7 +25,7 @@ namespace ImprovedItemInfo.Items.Globals
             { DamageClass.Throwing, DamageClass.Throwing },
         };
 
-        public GlobalItemImprovedCriticalChanceTooltip()
+        public ImprovedCriticalChanceTooltip()
         {
             // TODO: Add damage classes from other mods into lookup table (rogue, clicker, healer, bard, et cetera).
         }

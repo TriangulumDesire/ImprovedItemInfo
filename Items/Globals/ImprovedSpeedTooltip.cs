@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
 {
-    public class GlobalItemImprovedSpeedTooltip
+    public class ImprovedSpeedTooltip
         : GlobalItem
     {
         private const string SpeedTooltipName = "Speed";
