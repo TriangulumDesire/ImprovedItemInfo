@@ -89,6 +89,9 @@ namespace ImprovedItemInfo.Items.Globals
                         {
                             tooltip.Text += " " + tooltipElement;
                         }
+
+                        tooltip.IsModifier = true;
+                        tooltip.IsModifierBad = criticalChanceDelta < 0;
                     }
                 }
                 catch (Exception)

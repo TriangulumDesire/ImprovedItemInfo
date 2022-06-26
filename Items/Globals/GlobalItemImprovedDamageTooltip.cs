@@ -47,6 +47,9 @@ namespace ImprovedItemInfo.Items.Globals
                         {
                             tooltip.Text += " " + tooltipElement;
                         }
+
+                        tooltip.IsModifier = true;
+                        tooltip.IsModifierBad = damageDelta < 0;
                     }
                 }
                 catch (Exception)

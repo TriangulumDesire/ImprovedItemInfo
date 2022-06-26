@@ -42,12 +42,18 @@ namespace ImprovedItemInfo.Items.Globals
 
                     if (Math.Abs(knockbackDelta) > float.Epsilon)
                     {
-                        tooltip.Text += " (" + (knockbackDelta > 0.0f ? "+" : "-") + Math.Abs(knockbackDelta) + ")";
+                        tooltip.Text += $" ({(knockbackDelta > 0.0f ? "+" : "-")}{ Math.Abs(Math.Round(knockbackDelta, 2))})";
                     }
 
                     for (int i = 0; i < tooltipData.Length; ++i)
                     {
                         tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                    }
+
+                    if (Math.Abs(knockbackDelta) > float.Epsilon)
+                    {
+                        tooltip.IsModifier = true;
+                        tooltip.IsModifierBad = knockbackDelta < 0.0f;
                     }
                 }
                 catch (Exception)

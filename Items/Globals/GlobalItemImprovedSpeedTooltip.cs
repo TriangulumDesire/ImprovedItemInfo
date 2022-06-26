@@ -73,6 +73,12 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
                     }
+
+                    if (speedDelta != 0)
+                    {
+                        tooltip.IsModifier = true;
+                        tooltip.IsModifierBad = speedDelta > 0;
+                    }
                 }
                 catch (Exception)
                 {
