@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
@@ -10,16 +10,31 @@ namespace ImprovedItemInfo.Items.Globals
     public class GlobalItemImprovedAmmoTooltip
         : GlobalItem
     {
-        private static readonly Dictionary<int, string> _ammoTypeIDLookup = new()
+        private const string AmmoTooltipName = "Ammo";
+        private const string UseAmmoTooltipName = "UseAmmo";
+        private const string KnockbackTooltipName = "Knockback";
+
+        private const int BlowpipeInternalID = 281;
+        private const int BlowgunInternalID = 986;
+
+        private const int SeedInternalID = 283;
+        private const int PoisonDartInternalID = 1310;
+
+        private static readonly Dictionary<string, Dictionary<int, string>> _ammoTypeIDLookup = new()
         {
-            { 23, "Gel" },
-            { 40, "Arrow" },
-            { 71, "Coin" },
-            { 97, "Bullet" },
-            { 283, "Dart" },
-            { 771, "Rocket" },
-            { 780, "Solution" },
-            { 931, "Flare" },
+            {
+                "en-US", new()
+                {
+                    { 23, "Gel" },
+                    { 40, "Arrow" },
+                    { 71, "Coin" },
+                    { 97, "Bullet" },
+                    { 283, "Dart" },
+                    { 771, "Rocket" },
+                    { 780, "Solution" },
+                    { 931, "Flare" },
+                }
+            },
         };
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -33,7 +48,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 foreach (TooltipLine tooltip in tooltips)
                 {
-                    if (!tooltip.Name.Equals("Ammo"))
+                    if (!tooltip.Name.Equals(AmmoTooltipName))
                     {
                         continue;
                     }
@@ -42,14 +57,19 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         string ammoType = Lang.GetItemNameValue(item.ammo);
 
-                        if (_ammoTypeIDLookup.ContainsKey(item.ammo))
+                        if (_ammoTypeIDLookup.ContainsKey(Language.ActiveCulture.Name))
                         {
-                            ammoType = _ammoTypeIDLookup[item.ammo];
+                            var localisedAmmoTypeIDLookup = _ammoTypeIDLookup[Language.ActiveCulture.Name];
+
+                            if (localisedAmmoTypeIDLookup.ContainsKey(item.ammo))
+                            {
+                                ammoType = localisedAmmoTypeIDLookup[item.ammo];
+                            }
                         }
 
                         if (item.Name != ammoType)
                         {
-                            tooltip.Text = $"Ammo in {ammoType} ([i:{item.ammo}]) category";
+                            tooltip.Text = GetAmmoCategoryText(ammoType, item.ammo);
                         }
                     }
                     catch (Exception)
@@ -65,32 +85,56 @@ namespace ImprovedItemInfo.Items.Globals
                 {
                     string ammoType = Lang.GetItemNameValue(item.useAmmo);
 
-                    if (_ammoTypeIDLookup.ContainsKey(item.useAmmo))
+                    if (_ammoTypeIDLookup.ContainsKey(Language.ActiveCulture.Name))
                     {
-                        ammoType = _ammoTypeIDLookup[item.useAmmo];
+                        var localisedAmmoTypeIDLookup = _ammoTypeIDLookup[Language.ActiveCulture.Name];
+
+                        if (localisedAmmoTypeIDLookup.ContainsKey(item.useAmmo))
+                        {
+                            ammoType = localisedAmmoTypeIDLookup[item.useAmmo];
+                        }
                     }
 
                     TooltipLine ammoTypeTooltip = null;
 
-                    if (item.useAmmo == 283)
+                    if (item.useAmmo == SeedInternalID)
                     {
-                        if (item.netID == 281 || item.netID == 986)
+                        if (item.netID == BlowpipeInternalID || item.netID == BlowgunInternalID)
                         {
-                            string seedAmmoType = Lang.GetItemNameValue(283);
+                            string tooltipText = GetSeedAndDartUseAmmoCategoryText(item.useAmmo);
 
-                            ammoTypeTooltip = new(Mod, "useAmmo", $"Uses {seedAmmoType} ([i:{item.useAmmo}])/Dart ([i:1310]) as ammo");
+                            if (tooltipText is null)
+                            {
+                                return;
+                            }
+
+                            ammoTypeTooltip = new(Mod, UseAmmoTooltipName, tooltipText);
                         }
                         else
                         {
-                            ammoTypeTooltip = new(Mod, "useAmmo", $"Uses {ammoType} ([i:1310]) as ammo");
+                            string tooltipText = GetDartUseAmmoCategoryText(ammoType);
+
+                            if (tooltipText is null)
+                            {
+                                return;
+                            }
+
+                            ammoTypeTooltip = new(Mod, UseAmmoTooltipName, tooltipText);
                         }
                     }
                     else
                     {
-                        ammoTypeTooltip = new(Mod, "useAmmo", $"Uses {ammoType} ([i:{item.useAmmo}]) as ammo");
+                        string tooltipText = GetUseAmmoCategoryText(ammoType, item.useAmmo);
+
+                        if (tooltipText is null)
+                        {
+                            return;
+                        }
+
+                        ammoTypeTooltip = new(Mod, UseAmmoTooltipName, tooltipText);
                     }
 
-                    int knockbackTooltipIndex = tooltips.FindIndex(candidateTooltip => candidateTooltip.Name.Equals("Knockback"));
+                    int knockbackTooltipIndex = tooltips.FindIndex(candidateTooltip => candidateTooltip.Name.Equals(KnockbackTooltipName));
 
                     if (knockbackTooltipIndex == -1 || knockbackTooltipIndex == tooltips.Count - 1)
                     {
@@ -105,6 +149,56 @@ namespace ImprovedItemInfo.Items.Globals
                 {
 
                 }
+            }
+        }
+
+        private string GetAmmoCategoryText(in string ammoType, in int itemAmmoID)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return $"Ammo in {ammoType} ([i:{itemAmmoID}]) category";
+
+                default:
+                    return null;
+            }
+        }
+
+        private string GetSeedAndDartUseAmmoCategoryText(in int itemUseAmmoID)
+        {
+            string seedAmmoType = Lang.GetItemNameValue(SeedInternalID);
+
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return $"Uses {seedAmmoType} ([i:{itemUseAmmoID}])/Dart ([i:{PoisonDartInternalID}]) as ammo";
+
+                default:
+                    return null;
+            }
+        }
+
+        private string GetDartUseAmmoCategoryText(in string ammoType)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return $"Uses {ammoType} ([i:{PoisonDartInternalID}]) as ammo";
+
+                default:
+                    return null;
+            }
+        }
+
+        private string GetUseAmmoCategoryText(in string ammoType, in int itemUseAmmoID)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return $"Uses {ammoType} ([i:{itemUseAmmoID}]) as ammo";
+
+                default:
+                    return null;
             }
         }
     }

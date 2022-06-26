@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
@@ -10,6 +11,8 @@ namespace ImprovedItemInfo.Items.Globals
     public class GlobalItemImprovedCriticalChanceTooltip
         : GlobalItem
     {
+        private const string CriticalChanceTooltipName = "CritChance";
+
         private static readonly Dictionary<DamageClass, DamageClass> _damageClassLookup = new()
         {
             { DamageClass.Melee, DamageClass.Melee },
@@ -38,7 +41,7 @@ namespace ImprovedItemInfo.Items.Globals
 
             foreach (TooltipLine tooltip in tooltips)
             {
-                if (!tooltip.Name.Equals("CritChance"))
+                if (!tooltip.Name.Equals(CriticalChanceTooltipName))
                 {
                     continue;
                 }
@@ -47,13 +50,13 @@ namespace ImprovedItemInfo.Items.Globals
                 {
                     string[] tooltipData = tooltip.Text.Split(' ');
 
-                    if (!tooltipData[^1].Equals("chance"))
+                    if (!IsCriticalChanceTooltip(tooltipData))
                     {
                         return;
                     }
 
                     const int BaseCriticalChance = 4;
-                    int totalCriticalChance = int.Parse(tooltipData[0][0..^1]);
+                    int totalCriticalChance = GetTotalCriticalChanceFromTooltip(tooltipData);
                     int initialCriticalChance = 0;
 
                     if (item.ModItem is null)
@@ -83,12 +86,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     if (criticalChanceDelta != 0)
                     {
-                        tooltip.Text = $"{tooltipData[0]} ({(criticalChanceDelta > 0 ? "+" : "-")}{Math.Abs(criticalChanceDelta)}%)";
-
-                        foreach (string tooltipElement in tooltipData.Skip(1))
-                        {
-                            tooltip.Text += " " + tooltipElement;
-                        }
+                        ReconstructTooltip(tooltip, tooltipData, criticalChanceDelta);
 
                         tooltip.IsModifier = true;
                         tooltip.IsModifierBad = criticalChanceDelta < 0;
@@ -98,6 +96,46 @@ namespace ImprovedItemInfo.Items.Globals
                 {
 
                 }
+            }
+        }
+
+        private bool IsCriticalChanceTooltip(in string[] tooltipData)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return tooltipData[^1].Equals("chance");
+
+                default:
+                    return false;
+            }
+        }
+
+        private int GetTotalCriticalChanceFromTooltip(in string[] tooltipData)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return int.Parse(tooltipData[0][0..^1]);
+
+                default:
+                    return 0;
+            }
+        }
+
+        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int criticalChanceDelta)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    tooltip.Text = $"{tooltipData[0]} ({(criticalChanceDelta > 0 ? "+" : "-")}{Math.Abs(criticalChanceDelta)}%)";
+
+                    foreach (string tooltipElement in tooltipData.Skip(1))
+                    {
+                        tooltip.Text += " " + tooltipElement;
+                    }
+
+                    break;
             }
         }
     }

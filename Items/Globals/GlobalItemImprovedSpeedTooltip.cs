@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
@@ -9,6 +10,8 @@ namespace ImprovedItemInfo.Items.Globals
     public class GlobalItemImprovedSpeedTooltip
         : GlobalItem
     {
+        private const string SpeedTooltipName = "Speed";
+
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if (Main.netMode == NetmodeID.Server)
@@ -20,7 +23,7 @@ namespace ImprovedItemInfo.Items.Globals
 
             foreach (TooltipLine tooltip in tooltips)
             {
-                if (!tooltip.Name.Equals("Speed"))
+                if (!tooltip.Name.Equals(SpeedTooltipName))
                 {
                     continue;
                 }
@@ -29,7 +32,7 @@ namespace ImprovedItemInfo.Items.Globals
                 {
                     string[] tooltipData = tooltip.Text.Split(' ');
 
-                    if (!tooltipData[^1].Equals("speed"))
+                    if (!IsSpeedTooltip(tooltipData))
                     {
                         return;
                     }
@@ -62,17 +65,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     int speedDelta = totalSpeed - baseSpeed;
 
-                    tooltip.Text = $"{totalSpeed}";
-
-                    if (speedDelta != 0)
-                    {
-                        tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
-                    }
-                    
-                    for (int i = 0; i < tooltipData.Length; ++i)
-                    {
-                        tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
-                    }
+                    ReconstructTooltip(tooltip, tooltipData, totalSpeed, speedDelta);
 
                     if (speedDelta != 0)
                     {
@@ -84,6 +77,39 @@ namespace ImprovedItemInfo.Items.Globals
                 {
 
                 }
+            }
+        }
+
+        private bool IsSpeedTooltip(in string[] tooltipData)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    return tooltipData[^1].Equals("speed");
+
+                default:
+                    return false;
+            }
+        }
+
+        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int totalSpeed, in int speedDelta)
+        {
+            switch (Language.ActiveCulture.Name)
+            {
+                case "en-US":
+                    tooltip.Text = $"{totalSpeed}";
+
+                    if (speedDelta != 0)
+                    {
+                        tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
+                    }
+
+                    for (int i = 0; i < tooltipData.Length; ++i)
+                    {
+                        tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                    }
+
+                    break;
             }
         }
     }
