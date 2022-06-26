@@ -33,7 +33,7 @@ namespace ImprovedItemInfo.Items.Globals
                         return;
                     }
 
-                    Item unmodifiedItem = new Item();
+                    Item unmodifiedItem = new();
                     unmodifiedItem.CloneDefaults(item.type);
 
                     int totalDamage = int.Parse(tooltipData[0]);

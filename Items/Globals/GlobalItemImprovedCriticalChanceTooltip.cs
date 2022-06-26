@@ -10,7 +10,7 @@ namespace ImprovedItemInfo.Items.Globals
     public class GlobalItemImprovedCriticalChanceTooltip
         : GlobalItem
     {
-        private static readonly Dictionary<DamageClass, DamageClass> _damageClassLookup = new Dictionary<DamageClass, DamageClass>
+        private static readonly Dictionary<DamageClass, DamageClass> _damageClassLookup = new()
         {
             { DamageClass.Melee, DamageClass.Melee },
             { DamageClass.Magic, DamageClass.Magic },
@@ -58,7 +58,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     if (item.ModItem is null)
                     {
-                        Item unmodifiedItem = new Item();
+                        Item unmodifiedItem = new();
                         unmodifiedItem.CloneDefaults(item.type);
 
                         initialCriticalChance = unmodifiedItem.crit + BaseCriticalChance;
