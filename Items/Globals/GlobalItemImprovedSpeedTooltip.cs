@@ -67,7 +67,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     ReconstructTooltip(tooltip, tooltipData, totalSpeed, speedDelta);
 
-                    if (speedDelta != 0)
+                    if (ImprovedItemInfo.IsSpeedColoured && speedDelta != 0)
                     {
                         tooltip.IsModifier = true;
                         tooltip.IsModifierBad = speedDelta > 0;

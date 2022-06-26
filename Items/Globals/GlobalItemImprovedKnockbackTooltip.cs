@@ -45,7 +45,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     ReconstructTooltip(tooltip, tooltipData, tooltipLines, totalKnockback, knockbackDelta);
 
-                    if (Math.Abs(knockbackDelta) > float.Epsilon)
+                    if (ImprovedItemInfo.IsKnockbackColoured && Math.Abs(knockbackDelta) > float.Epsilon)
                     {
                         tooltip.IsModifier = true;
                         tooltip.IsModifierBad = knockbackDelta < 0.0f;

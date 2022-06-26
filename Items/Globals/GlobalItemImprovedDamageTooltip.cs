@@ -46,8 +46,11 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         ReconstructTooltip(tooltip, tooltipData, damageDelta);
 
-                        tooltip.IsModifier = true;
-                        tooltip.IsModifierBad = damageDelta < 0;
+                        if (ImprovedItemInfo.IsDamageColoured)
+                        {
+                            tooltip.IsModifier = true;
+                            tooltip.IsModifierBad = damageDelta < 0;
+                        }
                     }
                 }
                 catch (Exception)

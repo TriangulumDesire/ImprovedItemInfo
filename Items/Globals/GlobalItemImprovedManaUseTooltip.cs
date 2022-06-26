@@ -47,8 +47,11 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         ReconstructTooltip(tooltip, tooltipData, tooltipLines, manaUseDelta);
 
-                        tooltip.IsModifier = true;
-                        tooltip.IsModifierBad = manaUseDelta > 0;
+                        if (ImprovedItemInfo.IsManaUseColoured)
+                        {
+                            tooltip.IsModifier = true;
+                            tooltip.IsModifierBad = manaUseDelta > 0;
+                        }
                     }
                 }
                 catch (Exception)

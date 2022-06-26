@@ -39,7 +39,7 @@ namespace ImprovedItemInfo.Items.Globals
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (Main.netMode == NetmodeID.Server)
+            if (!ImprovedItemInfo.DisplayAmmoTooltips || Main.netMode == NetmodeID.Server)
             {
                 return;
             }

@@ -88,8 +88,11 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         ReconstructTooltip(tooltip, tooltipData, criticalChanceDelta);
 
-                        tooltip.IsModifier = true;
-                        tooltip.IsModifierBad = criticalChanceDelta < 0;
+                        if (ImprovedItemInfo.IsCriticalChanceColoured)
+                        {
+                            tooltip.IsModifier = true;
+                            tooltip.IsModifierBad = criticalChanceDelta < 0;
+                        }
                     }
                 }
                 catch (Exception)
