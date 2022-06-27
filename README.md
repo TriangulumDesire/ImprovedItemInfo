@@ -13,7 +13,7 @@ The mod currently only works in English.
 * Localisation is very ad-hoc and only in English. Need to replace it fully with HJSON files.  
 * Thorium Bard and Healer stats when Thorium is ported to 1.4.  
 
-### Stats affected.
+## Stats affected.
 * Damage.  
 * Critical strike chance.  
 * Use time (speed).  
