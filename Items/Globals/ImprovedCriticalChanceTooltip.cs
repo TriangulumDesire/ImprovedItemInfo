@@ -27,12 +27,19 @@ namespace ImprovedItemInfo.Items.Globals
 
         public ImprovedCriticalChanceTooltip()
         {
-            // TODO: Add damage classes from other mods into lookup table (rogue, clicker, healer, bard, et cetera).
             if (ModLoader.TryGetMod("ClickerClass", out _))
             {
                 if (ModContent.TryFind("ClickerClass/ClickerDamage", out DamageClass clickerDamage))
                 {
                     _damageClassLookup.Add(clickerDamage, clickerDamage);
+                }
+            }
+
+            if (ModLoader.TryGetMod("CalamityMod", out _))
+            {
+                if (ModContent.TryFind("CalamityMod/RogueDamageClass", out DamageClass rogueDamage))
+                {
+                    _damageClassLookup.Add(rogueDamage, rogueDamage);
                 }
             }
         }
@@ -87,9 +94,8 @@ namespace ImprovedItemInfo.Items.Globals
                         }
 
                         int classCriticalChance = matchedDamageClassCriticalChances.First();
-                        var test = player.GetTotalCritChance(DamageClass.Generic);
 
-                        initialCriticalChance = totalCriticalChance - classCriticalChance + BaseCriticalChance;
+                        initialCriticalChance = totalCriticalChance - classCriticalChance - item.crit + BaseCriticalChance;
                     }
 
                     int criticalChanceDelta = totalCriticalChance - initialCriticalChance;
