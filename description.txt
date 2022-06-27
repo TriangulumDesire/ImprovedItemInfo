@@ -15,6 +15,7 @@ Critical strike chance.
 Use time (speed).
 Knockback.
 Mana usage.
+Ammo type/category.
 Clicks to activate click effect (if Clicker Class is installed).
 Thorium bard and healer stats are planned when Thorium is ported to 1.4.
 

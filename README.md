@@ -19,6 +19,7 @@ The mod currently only works in English.
 * Use time (speed).  
 * Knockback.  
 * Mana usage.  
+* Ammo type/category.  
 * Clicks to activate click effect (if Clicker Class is installed).
 
 ## Examples.
