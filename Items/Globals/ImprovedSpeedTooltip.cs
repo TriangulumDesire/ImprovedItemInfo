@@ -80,19 +80,16 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private bool IsSpeedTooltip(in string[] tooltipData)
+        private static bool IsSpeedTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return tooltipData[^1].Equals("speed");
-
-                default:
-                    return false;
-            }
+                "en-US" => tooltipData[^1].Equals("speed"),
+                _ => false,
+            };
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int totalSpeed, in int speedDelta)
+        private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int totalSpeed, in int speedDelta)
         {
             switch (Language.ActiveCulture.Name)
             {

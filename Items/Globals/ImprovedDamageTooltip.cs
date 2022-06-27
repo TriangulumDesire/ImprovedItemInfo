@@ -60,31 +60,25 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private bool IsDamageTooltip(in string[] tooltipData)
+        private static bool IsDamageTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return tooltipData[^1].Equals("damage");
-
-                default:
-                    return false;
-            }
+                "en-US" => tooltipData[^1].Equals("damage"),
+                _ => false,
+            };
         }
 
-        private int GetTotalDamageFromTooltip(in string[] tooltipData)
+        private static int GetTotalDamageFromTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return int.Parse(tooltipData[0]);
-
-                default:
-                    return 0;
-            }
+                "en-US" => int.Parse(tooltipData[0]),
+                _ => 0,
+            };
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int damageDelta)
+        private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int damageDelta)
         {
             switch (Language.ActiveCulture.Name)
             {

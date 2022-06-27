@@ -152,54 +152,42 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private string GetAmmoCategoryText(in string ammoType, in int itemAmmoID)
+        private static string GetAmmoCategoryText(in string ammoType, in int itemAmmoID)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return $"Ammo in {ammoType} ([i:{itemAmmoID}]) category";
-
-                default:
-                    return null;
-            }
+                "en-US" => $"Ammo in {ammoType} ([i:{itemAmmoID}]) category",
+                _ => null,
+            };
         }
 
-        private string GetSeedAndDartUseAmmoCategoryText(in int itemUseAmmoID)
+        private static string GetSeedAndDartUseAmmoCategoryText(in int itemUseAmmoID)
         {
             string seedAmmoType = Lang.GetItemNameValue(SeedInternalID);
 
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return $"Uses {seedAmmoType} ([i:{itemUseAmmoID}])/Dart ([i:{PoisonDartInternalID}]) as ammo";
-
-                default:
-                    return null;
-            }
+                "en-US" => $"Uses {seedAmmoType} ([i:{itemUseAmmoID}])/Dart ([i:{PoisonDartInternalID}]) as ammo",
+                _ => null,
+            };
         }
 
-        private string GetDartUseAmmoCategoryText(in string ammoType)
+        private static string GetDartUseAmmoCategoryText(in string ammoType)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return $"Uses {ammoType} ([i:{PoisonDartInternalID}]) as ammo";
-
-                default:
-                    return null;
-            }
+                "en-US" => $"Uses {ammoType} ([i:{PoisonDartInternalID}]) as ammo",
+                _ => null,
+            };
         }
 
-        private string GetUseAmmoCategoryText(in string ammoType, in int itemUseAmmoID)
+        private static string GetUseAmmoCategoryText(in string ammoType, in int itemUseAmmoID)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return $"Uses {ammoType} ([i:{itemUseAmmoID}]) as ammo";
-
-                default:
-                    return null;
-            }
+                "en-US" => $"Uses {ammoType} ([i:{itemUseAmmoID}]) as ammo",
+                _ => null,
+            };
         }
     }
 }

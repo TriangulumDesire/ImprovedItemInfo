@@ -100,19 +100,16 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private string[] SplitTooltip(in TooltipLine tooltip)
+        private static string[] SplitTooltip(in TooltipLine tooltip)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return tooltip.Text.Split(": ", 2);
-
-                default:
-                    return Array.Empty<string>();
-            }
+                "en-US" => tooltip.Text.Split(": ", 2),
+                _ => Array.Empty<string>(),
+            };
         }
 
-        private (int, string) GetEffectClickAmountAndDisplayName(in string[] tooltipData)
+        private static (int, string) GetEffectClickAmountAndDisplayName(in string[] tooltipData)
         {
             switch (Language.ActiveCulture.Name)
             {
@@ -127,7 +124,7 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int currentClickAmount, in int clickAmountDelta)
+        private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int currentClickAmount, in int clickAmountDelta)
         {
             switch (Language.ActiveCulture.Name)
             {

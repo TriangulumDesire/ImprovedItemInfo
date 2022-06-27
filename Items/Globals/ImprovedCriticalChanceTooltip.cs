@@ -112,31 +112,25 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private bool IsCriticalChanceTooltip(in string[] tooltipData)
+        private static bool IsCriticalChanceTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return tooltipData[^1].Equals("chance");
-
-                default:
-                    return false;
-            }
+                "en-US" => tooltipData[^1].Equals("chance"),
+                _ => false,
+            };
         }
 
-        private int GetTotalCriticalChanceFromTooltip(in string[] tooltipData)
+        private static int GetTotalCriticalChanceFromTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return int.Parse(tooltipData[0][0..^1]);
-
-                default:
-                    return 0;
-            }
+                "en-US" => int.Parse(tooltipData[0][0..^1]),
+                _ => 0,
+            };
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int criticalChanceDelta)
+        private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int criticalChanceDelta)
         {
             switch (Language.ActiveCulture.Name)
             {

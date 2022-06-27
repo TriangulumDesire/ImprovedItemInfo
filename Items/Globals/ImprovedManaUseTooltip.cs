@@ -61,31 +61,25 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private bool IsManaUseTooltip(in string[] tooltipData)
+        private static bool IsManaUseTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return tooltipData[^1].Equals("mana");
-
-                default:
-                    return false;
-            }
+                "en-US" => tooltipData[^1].Equals("mana"),
+                _ => false,
+            };
         }
 
-        private int GetTotalManaUseFromTooltip(in string[] tooltipData)
+        private static int GetTotalManaUseFromTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return int.Parse(tooltipData[1]);
-
-                default:
-                    return 0;
-            }
+                "en-US" => int.Parse(tooltipData[1]),
+                _ => 0,
+            };
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in string[] tooltipLines, in int manaUseDelta)
+        private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in string[] tooltipLines, in int manaUseDelta)
         {
             switch (Language.ActiveCulture.Name)
             {

@@ -58,19 +58,16 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private bool IsKnockbackTooltip(in string[] tooltipData)
+        private static bool IsKnockbackTooltip(in string[] tooltipData)
         {
-            switch (Language.ActiveCulture.Name)
+            return Language.ActiveCulture.Name switch
             {
-                case "en-US":
-                    return tooltipData[^1].Equals("knockback");
-
-                default:
-                    return false;
-            }
+                "en-US" => tooltipData[^1].Equals("knockback"),
+                _ => false,
+            };
         }
 
-        private void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in string[] tooltipLines, in float totalKnockback, in float knockbackDelta)
+        private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in string[] tooltipLines, in float totalKnockback, in float knockbackDelta)
         {
             switch (Language.ActiveCulture.Name)
             {
