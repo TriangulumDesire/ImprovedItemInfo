@@ -1,1 +1,58 @@
-Improved Item Info is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+Improved Item Info is mod that displays more comprehensive stats about weapons.
+It essentially shows how the weapon is affected by modifiers and accessories.
+
+It is a spiritual successor to ItemStats+ written completely from scratch.
+
+Has cross-mod support with Clicker Class and Calamity (Thorium is planned when it is ported to tModLoader 1.4).
+
+The mod is completely open source and is avaiable here: https://github.com/LucidSigma/ImprovedItemInfo
+If you have anything you wish to contribute or want to fork it, you're more than welcome to.
+The mod currently only works in English.
+
+Stats affected:
+Damage.
+Critical strike chance.
+Use time (speed).
+Knockback.
+Mana usage.
+Clicks to activate click effect (if Clicker Class is installed).
+Thorium bard and healer stats are planned when Thorium is ported to 1.4.
+
+Examples:
+Weapon with no modifiers:
+Zenith
+190 melee damage
+14% critical strike chance
+Very slow speed
+Strong knockback
+
+Weapon with no modifiers and Improved Item Info:
+Zenith
+190 melee damage
+14% critical strike chance
+30 (Very slow) speed
+6.5 (Strong) knockback
+
+Weapon with modifiers:
+Legendary Zenith
+220 melee damage
+19% critical strike chance
+Slow speed
+Very strong knockback
++15% damage
++10% speed
++5% critical strike chance
++10% size
++15% knockback
+
+Weapon with modifiers and Improved Item Info:
+Legendary Zenith
+220 (+30) melee damage
+19% (+5%) critical strike chance
+27 (-3) (Slow) speed
+7.47 (+0.98) (Very strong) knockback
++15% damage
++10% speed
++5% critical strike chance
++10% size
++15% knockback
