@@ -20,6 +20,7 @@ namespace ImprovedItemInfo.Items.Globals
         private const int SeedInternalID = 283;
         private const int PoisonDartInternalID = 1310;
 
+        // TODO: Replace this ad-hoc localisation with actual proper translation.
         private static readonly Dictionary<string, Dictionary<int, string>> _ammoTypeIDLookup = new()
         {
             {
@@ -63,7 +64,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                             if (localisedAmmoTypeIDLookup.ContainsKey(item.ammo))
                             {
-                                ammoType = localisedAmmoTypeIDLookup[item.ammo];
+                                ammoType = Language.GetTextValue(localisedAmmoTypeIDLookup[item.ammo]);
                             }
                         }
 
@@ -91,7 +92,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                         if (localisedAmmoTypeIDLookup.ContainsKey(item.useAmmo))
                         {
-                            ammoType = localisedAmmoTypeIDLookup[item.useAmmo];
+                            ammoType = Language.GetTextValue(localisedAmmoTypeIDLookup[item.useAmmo]);
                         }
                     }
 

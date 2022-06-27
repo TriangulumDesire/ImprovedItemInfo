@@ -1,0 +1,47 @@
+﻿Mods.ImprovedItemInfo: {
+    AmmoCategory: {
+        Arrow: Arrow
+        Bullet: Bullet
+        Coin: Coin
+        Dart: Dart
+        Flare: Flare
+        Gel: Gel
+        Rocket: Rocket
+        Solution: Solution
+    }
+    DisplayConfig: {
+        ColouredClickEffectCount: {
+            Label: Coloured Click Effect Count Tooltip
+            Tooltip: Whether to use red/green colouring for the click effect count tooltip (Clicker Class)
+        }
+        ColouredCriticalChance: {
+            Label: Coloured Critical Chance Tooltip
+            Tooltip: Whether to use red/green colouring for the critical chance tooltip
+        }
+        ColouredDamage: {
+            Label: Coloured Damage Tooltip
+            Tooltip: Whether to use red/green colouring for the damage tooltip
+        }
+        ColouredKnockback: {
+            Label: Coloured Knockback Tooltip
+            Tooltip: Whether to use red/green colouring for the knockback tooltip
+        }
+        ColouredManaUse: {
+            Label: Coloured Mana Use Tooltip
+            Tooltip: Whether to use red/green colouring for the mana use tooltip
+        }
+        ColouredSpeed: {
+            Label: Coloured Speed Tooltip
+            Tooltip: Whether to use red/green colouring for the speed tooltip
+        }
+        DisplayAmmoTooltips: {
+            Label: Display Ammo Tooltips
+            Tooltip: Whether to display tooltips for ammo categories
+        }
+        Header: {
+            GeneralOptions: General Options
+            CrossModSupportOptions: Cross-mod Support Options
+        }
+        Label: Display Config
+    }
+}

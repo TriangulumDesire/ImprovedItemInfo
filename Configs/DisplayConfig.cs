@@ -3,48 +3,49 @@ using Terraria.ModLoader.Config;
 
 namespace ImprovedItemInfo.Configs
 {
+    [Label("$Mods.ImprovedItemInfo.DisplayConfig.Label")]
     public class DisplayConfig
         : ModConfig
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
-        [Header("General Options")]
+        [Header("$Mods.ImprovedItemInfo.DisplayConfig.Header.GeneralOptions")]
 
         [DefaultValue(false)]
-        [Label("Coloured Damage Tooltip")]
-        [Tooltip("Whether to use red/green colouring for the damage tooltip")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Tooltip")]
         public bool IsDamageColoured;
 
         [DefaultValue(true)]
-        [Label("Coloured Critical Chance Tooltip")]
-        [Tooltip("Whether to use red/green colouring for the critical chance tooltip")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Tooltip")]
         public bool IsCriticalChanceColoured;
 
         [DefaultValue(true)]
-        [Label("Coloured Speed Tooltip")]
-        [Tooltip("Whether to use red/green colouring for the speed tooltip")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Tooltip")]
         public bool IsSpeedColoured;
 
         [DefaultValue(true)]
-        [Label("Coloured Knockback Tooltip")]
-        [Tooltip("Whether to use red/green colouring for the knockback tooltip")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Tooltip")]
         public bool IsKnockbackColoured;
 
         [DefaultValue(true)]
-        [Label("Coloured Mana Use Tooltip")]
-        [Tooltip("Whether to use red/green colouring for the mana use tooltip")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Tooltip")]
         public bool IsManaUseColoured;
 
         [DefaultValue(true)]
-        [Label("Display Ammo Tooltips")]
-        [Tooltip("Whether to display tooltips for ammo categories")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.DisplayAmmoTooltips.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.DisplayAmmoTooltips.Tooltip")]
         public bool DisplayAmmoTooltips;
 
-        [Header("Cross-mod Support Options")]
+        [Header("$Mods.ImprovedItemInfo.DisplayConfig.Header.CrossModSupportOptions")]
 
         [DefaultValue(true)]
-        [Label("Coloured Click Effect Count Tooltip")]
-        [Tooltip("Whether to use red/green colouring for the click effect count tooltip (Clicker Class)")]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Tooltip")]
         public bool IsClickEffectCountColoured;
 
 
