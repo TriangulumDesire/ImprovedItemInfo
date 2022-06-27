@@ -10,6 +10,7 @@ namespace ImprovedItemInfo
         public static bool IsSpeedColoured { get; set; }
         public static bool IsKnockbackColoured { get; set; }
         public static bool IsManaUseColoured { get; set; }
+        public static bool IsClickEffectCountColoured { get; set; }
         public static bool DisplayAmmoTooltips { get; set; }
 
         public ImprovedItemInfo()

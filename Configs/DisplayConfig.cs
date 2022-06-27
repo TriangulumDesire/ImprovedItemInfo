@@ -8,6 +8,8 @@ namespace ImprovedItemInfo.Configs
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("General Options")]
+
         [DefaultValue(false)]
         [Label("Coloured Damage Tooltip")]
         [Tooltip("Whether to use red/green colouring for the damage tooltip")]
@@ -38,6 +40,13 @@ namespace ImprovedItemInfo.Configs
         [Tooltip("Whether to display tooltips for ammo categories")]
         public bool DisplayAmmoTooltips;
 
+        [Header("Cross-mod Support Options")]
+
+        [DefaultValue(true)]
+        [Label("Coloured Click Effect Count Tooltip")]
+        [Tooltip("Whether to use red/green colouring for the click effect count tooltip (Clicker Class)")]
+        public bool IsClickEffectCountColoured;
+
 
         public override void OnChanged()
         {
@@ -47,6 +56,8 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.IsKnockbackColoured = IsKnockbackColoured;
             ImprovedItemInfo.IsManaUseColoured = IsManaUseColoured;
             ImprovedItemInfo.DisplayAmmoTooltips = DisplayAmmoTooltips;
+
+            ImprovedItemInfo.IsClickEffectCountColoured = IsClickEffectCountColoured;
         }
     }
 }
