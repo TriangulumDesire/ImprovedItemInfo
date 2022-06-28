@@ -2,7 +2,7 @@
 Improved Item Info (III) is [tModLoader](https://github.com/tModLoader/tModLoader) mod for Terraria that displays more comprehensive stats about weapons.  
 It essentially shows how the weapon is affected by modifiers and accessories.  
   
-It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemStats) (by Xahlicem) written completely from scratch.  
+It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemStats) (by Xahlicem) rewritten completely from scratch.  
   
 Has cross-mod support with Clicker Class and Calamity (Thorium is planned when it is ported to tModLoader 1.4).  
   

@@ -1,7 +1,7 @@
 Improved Item Info (III) is mod that displays more comprehensive stats about weapons.
 It essentially shows how the weapon is affected by modifiers and accessories.
 
-It is a spiritual successor to ItemStats+ (by Xahlicem) written completely from scratch.
+It is a spiritual successor to ItemStats+ (by Xahlicem) rewritten completely from scratch.
 
 Has cross-mod support with Clicker Class and Calamity (Thorium is planned when it is ported to tModLoader 1.4).
 
