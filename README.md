@@ -35,3 +35,10 @@ The mod currently only works in English.
 |  |  | +5% critical strike chance | +5% critical strike chance |
 |  |  | +10% size | +10% size |
 |  |  | +15% knockback | +15% knockback |
+
+## Changelog:  
+* v1.0.1:  
+  * Change internal localisation details to make localisation easier.  
+
+* v1.0:  
+  * Initial release.  

@@ -21,21 +21,16 @@ namespace ImprovedItemInfo.Items.Globals
         private const int PoisonDartInternalID = 1310;
 
         // TODO: Replace this ad-hoc localisation with actual proper translation.
-        private static readonly Dictionary<string, Dictionary<int, string>> _ammoTypeIDLookup = new()
+        private static readonly Dictionary<int, string> _ammoTypeIDLookup = new()
         {
-            {
-                "en-US", new()
-                {
-                    { 23, "Gel" },
-                    { 40, "Arrow" },
-                    { 71, "Coin" },
-                    { 97, "Bullet" },
-                    { 283, "Dart" },
-                    { 771, "Rocket" },
-                    { 780, "Solution" },
-                    { 931, "Flare" },
-                }
-            },
+            { 23, "Gel" },
+            { 40, "Arrow" },
+            { 71, "Coin" },
+            { 97, "Bullet" },
+            { 283, "Dart" },
+            { 771, "Rocket" },
+            { 780, "Solution" },
+            { 931, "Flare" },
         };
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -56,17 +51,9 @@ namespace ImprovedItemInfo.Items.Globals
 
                     try
                     {
-                        string ammoType = Lang.GetItemNameValue(item.ammo);
-
-                        if (_ammoTypeIDLookup.ContainsKey(Language.ActiveCulture.Name))
-                        {
-                            var localisedAmmoTypeIDLookup = _ammoTypeIDLookup[Language.ActiveCulture.Name];
-
-                            if (localisedAmmoTypeIDLookup.ContainsKey(item.ammo))
-                            {
-                                ammoType = Language.GetTextValue(localisedAmmoTypeIDLookup[item.ammo]);
-                            }
-                        }
+                        string ammoType = _ammoTypeIDLookup.ContainsKey(item.ammo)
+                            ? Language.GetTextValue($"Mods.ImprovedItemInfo.AmmoCategory.{_ammoTypeIDLookup[item.ammo]}")
+                            : Lang.GetItemNameValue(item.ammo);
 
                         if (item.Name != ammoType)
                         {
@@ -84,17 +71,9 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 try
                 {
-                    string ammoType = Lang.GetItemNameValue(item.useAmmo);
-
-                    if (_ammoTypeIDLookup.ContainsKey(Language.ActiveCulture.Name))
-                    {
-                        var localisedAmmoTypeIDLookup = _ammoTypeIDLookup[Language.ActiveCulture.Name];
-
-                        if (localisedAmmoTypeIDLookup.ContainsKey(item.useAmmo))
-                        {
-                            ammoType = Language.GetTextValue(localisedAmmoTypeIDLookup[item.useAmmo]);
-                        }
-                    }
+                    string ammoType = _ammoTypeIDLookup.ContainsKey(item.useAmmo)
+                        ? Language.GetTextValue($"Mods.ImprovedItemInfo.AmmoCategory.{_ammoTypeIDLookup[item.useAmmo]}")
+                        : Lang.GetItemNameValue(item.useAmmo);
 
                     TooltipLine ammoTypeTooltip = null;
 
