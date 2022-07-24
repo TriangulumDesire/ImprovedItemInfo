@@ -15,7 +15,7 @@ namespace ImprovedItemInfo.Items.Globals
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (item.knockBack <= 0.0f || Main.netMode == NetmodeID.Server)
+            if (!ImprovedItemInfo.IsKnockbackImproved || item.knockBack <= 0.0f || Main.netMode == NetmodeID.Server)
             {
                 return;
             }

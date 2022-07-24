@@ -5,6 +5,8 @@ It is a spiritual successor to ItemStats+ (by Xahlicem) rewritten completely fro
 
 Has cross-mod support with Clicker Class and Calamity (Thorium is planned when it is ported to tModLoader 1.4).
 
+All tooltips that this mod affects are configurable.
+
 The mod is completely open source and is avaiable here: https://github.com/LucidSigma/ImprovedItemInfo
 If you have anything you wish to contribute or want to fork it, you're more than welcome to.
 The mod currently only works in English.

@@ -12,14 +12,18 @@ namespace ImprovedItemInfo.Items.Globals
         : GlobalItem
     {
         private const string ClickerClassModName = "ClickerClass";
-
         private const string ClickEffectTooltipStem = "ClickEffect";
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
+            if (!ImprovedItemInfo.IsClickEffectCountImproved || Main.netMode == NetmodeID.Server)
+            {
+                return;
+            }
+
             string itemModName = item.ModItem?.Mod?.Name;
 
-            if ((itemModName is not null && !itemModName.Equals(ClickerClassModName)) || Main.netMode == NetmodeID.Server)
+            if (itemModName is not null && !itemModName.Equals(ClickerClassModName))
             {
                 return;
             }

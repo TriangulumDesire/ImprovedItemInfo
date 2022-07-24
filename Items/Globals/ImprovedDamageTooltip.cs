@@ -15,7 +15,7 @@ namespace ImprovedItemInfo.Items.Globals
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (item.damage <= 0 || Main.netMode == NetmodeID.Server)
+            if (!ImprovedItemInfo.IsDamageImproved || item.damage <= 0 || Main.netMode == NetmodeID.Server)
             {
                 return;
             }

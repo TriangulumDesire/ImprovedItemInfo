@@ -10,6 +10,14 @@
         Solution: Solution
     }
     DisplayConfig: {
+        AmmoTooltipsDisplay: {
+            Label: Display Ammo Tooltips
+            Tooltip: Whether to display tooltips for ammo categories
+        }
+        ClickEffectCountDisplay: {
+            Label: Display Improved Click Effect Count Stats
+            Tooltip: Whether to improve the click effect count tooltip
+        }
         ColouredClickEffectCount: {
             Label: Coloured Click Effect Count Tooltip
             Tooltip: Whether to use red/green colouring for the click effect count tooltip (Clicker Class)
@@ -34,11 +42,28 @@
             Label: Coloured Speed Tooltip
             Tooltip: Whether to use red/green colouring for the speed tooltip
         }
-        DisplayAmmoTooltips: {
-            Label: Display Ammo Tooltips
-            Tooltip: Whether to display tooltips for ammo categories
+        CriticalChanceDisplay: {
+            Label: Display Improved Critical Strike Chance Stats
+            Tooltip: Whether to improve the critical strike chance tooltip
+        }
+        DamageDisplay: {
+            Label: Display Improved Damage Stats
+            Tooltip: Whether to improve the damage tooltip
+        }
+        KnockbackDisplay: {
+            Label: Display Improved Knockback Stats
+            Tooltip: Whether to improve the knockback tooltip
+        }
+        ManaUseDisplay: {
+            Label: Display Improved Mana Use Stats
+            Tooltip: Whether to improve the mana usage tooltip
+        }
+        SpeedDisplay: {
+            Label: Display Improved Speed Stats
+            Tooltip: Whether to improve the speed tooltip
         }
         Header: {
+            ColourOptions: Colour Options
             GeneralOptions: General Options
             CrossModSupportOptions: Cross-mod Support Options
         }
