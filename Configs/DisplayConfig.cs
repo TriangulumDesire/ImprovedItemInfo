@@ -37,6 +37,16 @@ namespace ImprovedItemInfo.Configs
         public bool IsManaUseImproved;
 
         [DefaultValue(true)]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Tooltip")]
+        public bool DisplayProjectileVelocityTooltip;
+
+        [DefaultValue(true)]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Tooltip")]
+        public bool DisplayProjectileVelocityMultiplierTooltip;
+
+        [DefaultValue(true)]
         [Label("$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Label")]
         [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Tooltip")]
         public bool DisplayAmmoTooltips;
@@ -68,6 +78,11 @@ namespace ImprovedItemInfo.Configs
         [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Tooltip")]
         public bool IsManaUseColoured;
 
+        [DefaultValue(true)]
+        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Label")]
+        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Tooltip")]
+        public bool IsProjectileVelocityColoured;
+
         [Header("$Mods.ImprovedItemInfo.DisplayConfig.Header.CrossModSupportOptions")]
 
         [DefaultValue(true)]
@@ -87,6 +102,8 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.IsKnockbackImproved = IsKnockbackImproved;
             ImprovedItemInfo.IsSpeedImproved = IsSpeedImproved;
             ImprovedItemInfo.IsManaUseImproved = IsManaUseImproved;
+            ImprovedItemInfo.DisplayProjectileVelocityTooltip = DisplayProjectileVelocityTooltip;
+            ImprovedItemInfo.DisplayProjectileVelocityMultiplierTooltip = DisplayProjectileVelocityMultiplierTooltip;
             ImprovedItemInfo.DisplayAmmoTooltips = DisplayAmmoTooltips;
 
             ImprovedItemInfo.IsDamageColoured = IsDamageColoured;
@@ -94,6 +111,7 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.IsSpeedColoured = IsSpeedColoured;
             ImprovedItemInfo.IsKnockbackColoured = IsKnockbackColoured;
             ImprovedItemInfo.IsManaUseColoured = IsManaUseColoured;
+            ImprovedItemInfo.IsProjectileVelocityColoured = IsProjectileVelocityColoured;
 
             ImprovedItemInfo.IsClickEffectCountImproved = IsClickEffectCountImproved;
             ImprovedItemInfo.IsClickEffectCountColoured = IsClickEffectCountColoured;

@@ -38,6 +38,10 @@
             Label: Coloured Mana Use Tooltip
             Tooltip: Whether to use red/green colouring for the mana use tooltip
         }
+        ColouredProjectileVelocity: {
+            Label: Coloured Projectile Velocity Tooltip
+            Tooltip: Whether to use red/green colouring for the projectile velocity tooltip
+        }
         ColouredSpeed: {
             Label: Coloured Speed Tooltip
             Tooltip: Whether to use red/green colouring for the speed tooltip
@@ -58,6 +62,14 @@
             Label: Display Improved Mana Use Stats
             Tooltip: Whether to improve the mana usage tooltip
         }
+        ProjectileVelocityDisplay: {
+            Label: Display Projectile Velocity Stats
+            Tooltip: Whether to display the projectile velocity tooltip
+        }
+        ProjectileVelocityMultiplierDisplay: {
+            Label: Display Projectile Velocity Multiplier Stats
+            Tooltip: Whether to display the projectile velocity multiplier tooltip
+        }
         SpeedDisplay: {
             Label: Display Improved Speed Stats
             Tooltip: Whether to improve the speed tooltip
@@ -68,5 +80,9 @@
             CrossModSupportOptions: Cross-mod Support Options
         }
         Label: Display Config
+    }
+    Tooltips: {
+        ProjectileVelocity: "{0}{1} projectile velocity"
+        ProjectileVelocityMultiplier: "x{0} projectile velocity multiplier"
     }
 }

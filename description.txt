@@ -1,5 +1,5 @@
 Improved Item Info (III) is mod that displays more comprehensive stats about weapons.
-It essentially shows how the weapon is affected by modifiers and accessories.
+It essentially shows how the weapon is affected by modifiers and accessories, as well as adding extra tooltips (such as projectile velocity).
 
 It is a spiritual successor to ItemStats+ (by Xahlicem) rewritten completely from scratch.
 
@@ -12,14 +12,16 @@ If you have anything you wish to contribute or want to fork it, you're more than
 The mod currently only works in English.
 
 Stats affected:
-Damage.
-Critical strike chance.
-Use time (speed).
-Knockback.
-Mana usage.
-Ammo type/category.
-Clicks to activate click effect (if Clicker Class is installed).
-Thorium bard and healer stats are planned when Thorium is ported to 1.4.
+* Damage.
+* Critical strike chance.
+* Use time (speed).
+* Knockback.
+* Mana usage.
+* Ammo type/category.
+* Projectile velocity.
+* Projectile velocity multiplier.
+* Clicks to activate click effect (if Clicker Class is installed).
+* Thorium bard and healer stats are planned when Thorium is ported to 1.4.
 
 Examples:
 Weapon with no modifiers:
@@ -61,6 +63,15 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.2:
+* Add projectile velocity and projectile velocity multiplier tooltips.
+
+v1.1.1:
+* Fix Steam Workshop icon.
+
+v1.1:
+* Add configuration options for each affected tooltip.
+
 v1.0.1:
 * Change internal localisation details to make localisation easier.
 

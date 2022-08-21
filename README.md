@@ -1,6 +1,6 @@
 # Improved Item Info.
 Improved Item Info (III) is [tModLoader](https://github.com/tModLoader/tModLoader) mod for Terraria that displays more comprehensive stats about weapons.  
-It essentially shows how the weapon is affected by modifiers and accessories.  
+It essentially shows how the weapon is affected by modifiers and accessories, as well as adding extra tooltips (such as projectile velocity).  
   
 It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemStats) (by Xahlicem) rewritten completely from scratch.  
   
@@ -20,7 +20,9 @@ The mod currently only works in English.
 * Knockback.  
 * Mana usage.  
 * Ammo type/category.  
-* Clicks to activate click effect (if Clicker Class is installed).
+* Projectile velocity.  
+* Projectile velocity multiplier.  
+* Clicks to activate click effect (if Clicker Class is installed).  
 
 ## Examples.
 | Without III (no modifiers) | With III (no modifiers) | Without III (with modifier) | With III (with modifiers) |
@@ -37,6 +39,15 @@ The mod currently only works in English.
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.2:  
+  * Add projectile velocity and projectile velocity multiplier tooltips.  
+
+* v1.1.1:  
+  * Fix Steam Workshop icon.  
+
+* v1.1:  
+  * Add configuration options for each affected tooltip.  
+
 * v1.0.1:  
   * Change internal localisation details to make localisation easier.  
 
