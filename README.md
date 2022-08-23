@@ -39,6 +39,9 @@ The mod currently only works in English.
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.2.1:  
+  * Fix text formatting issue with projectile velocity tooltip.  
+
 * v1.2:  
   * Add projectile velocity and projectile velocity multiplier tooltips.  
 

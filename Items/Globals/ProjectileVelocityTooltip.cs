@@ -35,11 +35,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     if (projectileVelocityDelta != 0.0f)
                     {
-                        deltaString = Language.GetTextValue(
-                            " ({0}{1})",
-                            projectileVelocityDelta > 0.0f ? "+" : "-",
-                            Math.Abs(projectileVelocityDelta)
-                        );
+                        deltaString = $" ({(projectileVelocityDelta > 0.0f ? "+" : "-")}{Math.Abs(projectileVelocityDelta)})";
                     }
 
                     TooltipLine projectileVelocityTooltipLine = new(

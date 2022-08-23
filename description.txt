@@ -63,6 +63,9 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.2.1:
+* Fix text formatting issue with projectile velocity tooltip.
+
 v1.2:
 * Add projectile velocity and projectile velocity multiplier tooltips.
 
