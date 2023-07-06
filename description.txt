@@ -63,6 +63,9 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.2.2:
+* Update to tModLoader 1.4.4.
+
 v1.2.1:
 * Fix text formatting issue with projectile velocity tooltip.
 

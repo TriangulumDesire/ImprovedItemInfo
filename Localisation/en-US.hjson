@@ -1,88 +1,195 @@
-﻿Mods.ImprovedItemInfo: {
-    AmmoCategory: {
-        Arrow: Arrow
-        Bullet: Bullet
-        Coin: Coin
-        Dart: Dart
-        Flare: Flare
-        Gel: Gel
-        Rocket: Rocket
-        Solution: Solution
-    }
-    DisplayConfig: {
-        AmmoTooltipsDisplay: {
-            Label: Display Ammo Tooltips
-            Tooltip: Whether to display tooltips for ammo categories
-        }
-        ClickEffectCountDisplay: {
-            Label: Display Improved Click Effect Count Stats
-            Tooltip: Whether to improve the click effect count tooltip
-        }
-        ColouredClickEffectCount: {
-            Label: Coloured Click Effect Count Tooltip
-            Tooltip: Whether to use red/green colouring for the click effect count tooltip (Clicker Class)
-        }
-        ColouredCriticalChance: {
-            Label: Coloured Critical Chance Tooltip
-            Tooltip: Whether to use red/green colouring for the critical chance tooltip
-        }
-        ColouredDamage: {
-            Label: Coloured Damage Tooltip
-            Tooltip: Whether to use red/green colouring for the damage tooltip
-        }
-        ColouredKnockback: {
-            Label: Coloured Knockback Tooltip
-            Tooltip: Whether to use red/green colouring for the knockback tooltip
-        }
-        ColouredManaUse: {
-            Label: Coloured Mana Use Tooltip
-            Tooltip: Whether to use red/green colouring for the mana use tooltip
-        }
-        ColouredProjectileVelocity: {
-            Label: Coloured Projectile Velocity Tooltip
-            Tooltip: Whether to use red/green colouring for the projectile velocity tooltip
-        }
-        ColouredSpeed: {
-            Label: Coloured Speed Tooltip
-            Tooltip: Whether to use red/green colouring for the speed tooltip
-        }
-        CriticalChanceDisplay: {
-            Label: Display Improved Critical Strike Chance Stats
-            Tooltip: Whether to improve the critical strike chance tooltip
-        }
-        DamageDisplay: {
-            Label: Display Improved Damage Stats
-            Tooltip: Whether to improve the damage tooltip
-        }
-        KnockbackDisplay: {
-            Label: Display Improved Knockback Stats
-            Tooltip: Whether to improve the knockback tooltip
-        }
-        ManaUseDisplay: {
-            Label: Display Improved Mana Use Stats
-            Tooltip: Whether to improve the mana usage tooltip
-        }
-        ProjectileVelocityDisplay: {
-            Label: Display Projectile Velocity Stats
-            Tooltip: Whether to display the projectile velocity tooltip
-        }
-        ProjectileVelocityMultiplierDisplay: {
-            Label: Display Projectile Velocity Multiplier Stats
-            Tooltip: Whether to display the projectile velocity multiplier tooltip
-        }
-        SpeedDisplay: {
-            Label: Display Improved Speed Stats
-            Tooltip: Whether to improve the speed tooltip
-        }
-        Header: {
-            ColourOptions: Colour Options
-            GeneralOptions: General Options
-            CrossModSupportOptions: Cross-mod Support Options
-        }
-        Label: Display Config
-    }
-    Tooltips: {
-        ProjectileVelocity: "{0}{1} projectile velocity"
-        ProjectileVelocityMultiplier: "x{0} projectile velocity multiplier"
-    }
+Mods: {
+	ImprovedItemInfo: {
+		AmmoCategory: {
+			Arrow: Arrow
+			Bullet: Bullet
+			Coin: Coin
+			Dart: Dart
+			Flare: Flare
+			Gel: Gel
+			Rocket: Rocket
+			Solution: Solution
+		}
+
+		DisplayConfig: {
+			AmmoTooltipsDisplay: {
+				Label: Display Ammo Tooltips
+				Tooltip: Whether to display tooltips for ammo categories
+			}
+
+			ClickEffectCountDisplay: {
+				Label: Display Improved Click Effect Count Stats
+				Tooltip: Whether to improve the click effect count tooltip
+			}
+
+			ColouredClickEffectCount: {
+				Label: Coloured Click Effect Count Tooltip
+				Tooltip: Whether to use red/green colouring for the click effect count tooltip (Clicker Class)
+			}
+
+			ColouredCriticalChance: {
+				Label: Coloured Critical Chance Tooltip
+				Tooltip: Whether to use red/green colouring for the critical chance tooltip
+			}
+
+			ColouredDamage: {
+				Label: Coloured Damage Tooltip
+				Tooltip: Whether to use red/green colouring for the damage tooltip
+			}
+
+			ColouredKnockback: {
+				Label: Coloured Knockback Tooltip
+				Tooltip: Whether to use red/green colouring for the knockback tooltip
+			}
+
+			ColouredManaUse: {
+				Label: Coloured Mana Use Tooltip
+				Tooltip: Whether to use red/green colouring for the mana use tooltip
+			}
+
+			ColouredProjectileVelocity: {
+				Label: Coloured Projectile Velocity Tooltip
+				Tooltip: Whether to use red/green colouring for the projectile velocity tooltip
+			}
+
+			ColouredSpeed: {
+				Label: Coloured Speed Tooltip
+				Tooltip: Whether to use red/green colouring for the speed tooltip
+			}
+
+			CriticalChanceDisplay: {
+				Label: Display Improved Critical Strike Chance Stats
+				Tooltip: Whether to improve the critical strike chance tooltip
+			}
+
+			DamageDisplay: {
+				Label: Display Improved Damage Stats
+				Tooltip: Whether to improve the damage tooltip
+			}
+
+			KnockbackDisplay: {
+				Label: Display Improved Knockback Stats
+				Tooltip: Whether to improve the knockback tooltip
+			}
+
+			ManaUseDisplay: {
+				Label: Display Improved Mana Use Stats
+				Tooltip: Whether to improve the mana usage tooltip
+			}
+
+			ProjectileVelocityDisplay: {
+				Label: Display Projectile Velocity Stats
+				Tooltip: Whether to display the projectile velocity tooltip
+			}
+
+			ProjectileVelocityMultiplierDisplay: {
+				Label: Display Projectile Velocity Multiplier Stats
+				Tooltip: Whether to display the projectile velocity multiplier tooltip
+			}
+
+			SpeedDisplay: {
+				Label: Display Improved Speed Stats
+				Tooltip: Whether to improve the speed tooltip
+			}
+
+			Header: {
+				ColourOptions: Colour Options
+				GeneralOptions: General Options
+				CrossModSupportOptions: Cross-mod Support Options
+			}
+
+			Label: Display Config
+		}
+
+		Tooltips: {
+			ProjectileVelocity: "{0}{1} projectile velocity"
+			ProjectileVelocityMultiplier: x{0} projectile velocity multiplier
+		}
+
+		Configs: {
+			DisplayConfig: {
+				DisplayName: "{$Mods.ImprovedItemInfo.DisplayConfig.Label}"
+
+				IsDamageImproved: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Tooltip}"
+				}
+
+				IsCriticalChanceImproved: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Tooltip}"
+				}
+
+				IsSpeedImproved: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Tooltip}"
+				}
+
+				IsKnockbackImproved: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Tooltip}"
+				}
+
+				IsManaUseImproved: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Tooltip}"
+				}
+
+				DisplayProjectileVelocityTooltip: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Tooltip}"
+				}
+
+				DisplayProjectileVelocityMultiplierTooltip: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Tooltip}"
+				}
+
+				DisplayAmmoTooltips: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Tooltip}"
+				}
+
+				IsDamageColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Tooltip}"
+				}
+
+				IsCriticalChanceColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Tooltip}"
+				}
+
+				IsSpeedColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Tooltip}"
+				}
+
+				IsKnockbackColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Tooltip}"
+				}
+
+				IsManaUseColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Tooltip}"
+				}
+
+				IsProjectileVelocityColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Tooltip}"
+				}
+
+				IsClickEffectCountImproved: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Tooltip}"
+				}
+
+				IsClickEffectCountColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Tooltip}"
+				}
+			}
+		}
+	}
 }
