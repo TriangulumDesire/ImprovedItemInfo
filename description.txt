@@ -15,6 +15,7 @@ Stats affected:
 * Damage.
 * Critical strike chance.
 * Use time (speed).
+* Mining speed.
 * Knockback.
 * Mana usage.
 * Ammo type/category.
@@ -63,6 +64,10 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.3:
+* Add mining speed tooltip.
+* Remove use of deprecated tModLoader features.
+
 v1.2.2:
 * Update to tModLoader 1.4.4.
 

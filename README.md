@@ -4,19 +4,19 @@ It essentially shows how the weapon is affected by modifiers and accessories, as
   
 It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemStats) (by Xahlicem) rewritten completely from scratch.  
   
-Has cross-mod support with Clicker Class and Calamity (Thorium is planned when it is ported to tModLoader 1.4).  
+Has cross-mod support with Clicker Class and Calamity.  
   
 If you have anything you wish to contribute or want to fork this mod, you're more than welcome to.  
 The mod currently only works in English.  
 
 ## To do.
 * Localisation is very ad-hoc and only in English. Need to replace it fully with HJSON files.  
-* Thorium Bard and Healer stats when Thorium is ported to 1.4.  
 
 ## Stats affected.
 * Damage.  
 * Critical strike chance.  
 * Use time (speed).  
+* Mining speed.  
 * Knockback.  
 * Mana usage.  
 * Ammo type/category.  
@@ -39,6 +39,10 @@ The mod currently only works in English.
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.3:  
+  * Add mining speed tooltip.  
+  * Remove use of deprecated tModLoader features.  
+
 * v1.2.1:  
   * Fix text formatting issue with projectile velocity tooltip.  
 

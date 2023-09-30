@@ -3,7 +3,6 @@ using Terraria.ModLoader.Config;
 
 namespace ImprovedItemInfo.Configs
 {
-    [Label("$Mods.ImprovedItemInfo.DisplayConfig.Label")]
     public class DisplayConfig
         : ModConfig
     {
@@ -12,87 +11,97 @@ namespace ImprovedItemInfo.Configs
         [Header("$Mods.ImprovedItemInfo.DisplayConfig.Header.GeneralOptions")]
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Tooltip")]
         public bool IsDamageImproved;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Tooltip")]
         public bool IsCriticalChanceImproved;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Tooltip")]
         public bool IsSpeedImproved;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.MiningSpeedDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.MiningSpeedDisplay.Tooltip")]
+        public bool DisplayMiningSpeedTooltip;
+
+        [DefaultValue(true)]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Tooltip")]
         public bool IsKnockbackImproved;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Tooltip")]
         public bool IsManaUseImproved;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Tooltip")]
         public bool DisplayProjectileVelocityTooltip;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Tooltip")]
         public bool DisplayProjectileVelocityMultiplierTooltip;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Tooltip")]
         public bool DisplayAmmoTooltips;
 
         [Header("$Mods.ImprovedItemInfo.DisplayConfig.Header.ColourOptions")]
 
         [DefaultValue(false)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Tooltip")]
         public bool IsDamageColoured;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Tooltip")]
         public bool IsCriticalChanceColoured;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Tooltip")]
         public bool IsSpeedColoured;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredMiningSpeed.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredMiningSpeed.Tooltip")]
+        public bool IsMiningSpeedColoured;
+
+        [DefaultValue(true)]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Tooltip")]
         public bool IsKnockbackColoured;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Tooltip")]
         public bool IsManaUseColoured;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Tooltip")]
         public bool IsProjectileVelocityColoured;
 
         [Header("$Mods.ImprovedItemInfo.DisplayConfig.Header.CrossModSupportOptions")]
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Tooltip")]
         public bool IsClickEffectCountImproved;
 
         [DefaultValue(true)]
-        [Label("$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Label")]
-        [Tooltip("$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Tooltip")]
+        [LabelKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Tooltip")]
         public bool IsClickEffectCountColoured;
 
         public override void OnChanged()
@@ -101,6 +110,7 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.IsCriticalChanceImproved = IsCriticalChanceImproved;
             ImprovedItemInfo.IsKnockbackImproved = IsKnockbackImproved;
             ImprovedItemInfo.IsSpeedImproved = IsSpeedImproved;
+            ImprovedItemInfo.DisplayMiningSpeedTooltip = DisplayMiningSpeedTooltip;
             ImprovedItemInfo.IsManaUseImproved = IsManaUseImproved;
             ImprovedItemInfo.DisplayProjectileVelocityTooltip = DisplayProjectileVelocityTooltip;
             ImprovedItemInfo.DisplayProjectileVelocityMultiplierTooltip = DisplayProjectileVelocityMultiplierTooltip;
@@ -109,6 +119,7 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.IsDamageColoured = IsDamageColoured;
             ImprovedItemInfo.IsCriticalChanceColoured = IsCriticalChanceColoured;
             ImprovedItemInfo.IsSpeedColoured = IsSpeedColoured;
+            ImprovedItemInfo.IsMiningSpeedColoured = IsMiningSpeedColoured;
             ImprovedItemInfo.IsKnockbackColoured = IsKnockbackColoured;
             ImprovedItemInfo.IsManaUseColoured = IsManaUseColoured;
             ImprovedItemInfo.IsProjectileVelocityColoured = IsProjectileVelocityColoured;

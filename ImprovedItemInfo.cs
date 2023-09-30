@@ -8,6 +8,7 @@ namespace ImprovedItemInfo
         public static bool IsDamageImproved { get; set; }
         public static bool IsCriticalChanceImproved { get; set; }
         public static bool IsSpeedImproved { get; set; }
+        public static bool DisplayMiningSpeedTooltip { get; set; }
         public static bool IsKnockbackImproved { get; set; }
         public static bool IsManaUseImproved { get; set; }
         public static bool DisplayProjectileVelocityTooltip { get; set; }
@@ -17,6 +18,7 @@ namespace ImprovedItemInfo
         public static bool IsDamageColoured { get; set; }
         public static bool IsCriticalChanceColoured { get; set; }
         public static bool IsSpeedColoured { get; set; }
+        public static bool IsMiningSpeedColoured { get; set; }
         public static bool IsKnockbackColoured { get; set; }
         public static bool IsManaUseColoured { get; set; }
         public static bool IsProjectileVelocityColoured { get; set; }

@@ -47,6 +47,11 @@ Mods: {
 				Tooltip: Whether to use red/green colouring for the mana use tooltip
 			}
 
+			ColouredMiningSpeed: {
+				Label: Coloured Mining Speed Tooltip
+				Tooltip: Whether to use red/green colouring for the mining speed tooltip
+			}
+
 			ColouredProjectileVelocity: {
 				Label: Coloured Projectile Velocity Tooltip
 				Tooltip: Whether to use red/green colouring for the projectile velocity tooltip
@@ -77,6 +82,11 @@ Mods: {
 				Tooltip: Whether to improve the mana usage tooltip
 			}
 
+			MiningSpeedDisplay: {
+				Label: Display Mining Speed Stats
+				Tooltip: Whether to display the mining speed tooltip for pickaxes, axes, and hammers
+			}
+
 			ProjectileVelocityDisplay: {
 				Label: Display Projectile Velocity Stats
 				Tooltip: Whether to display the projectile velocity tooltip
@@ -102,6 +112,7 @@ Mods: {
 		}
 
 		Tooltips: {
+			MiningSpeed: "{0}{1} mining speed"
 			ProjectileVelocity: "{0}{1} projectile velocity"
 			ProjectileVelocityMultiplier: x{0} projectile velocity multiplier
 		}
@@ -188,6 +199,16 @@ Mods: {
 				IsClickEffectCountColoured: {
 					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Label}"
 					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Tooltip}"
+				}
+
+				DisplayMiningSpeedTooltip: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.MiningSpeedDisplay.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.MiningSpeedDisplay.Tooltip}"
+				}
+
+				IsMiningSpeedColoured: {
+					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredMiningSpeed.Label}"
+					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredMiningSpeed.Tooltip}"
 				}
 			}
 		}
