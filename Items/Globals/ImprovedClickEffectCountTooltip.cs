@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -14,9 +15,22 @@ namespace ImprovedItemInfo.Items.Globals
         private const string ClickerClassModName = "ClickerClass";
         private const string ClickEffectTooltipStem = "ClickEffect";
 
+        private static Dictionary<string, int> _clickerEffectTotalClickAmounts = null;
+        private static bool _hasClickerDataBeenInitialised = false;
+
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if (!ImprovedItemInfo.IsClickEffectCountImproved || Main.netMode == NetmodeID.Server)
+            {
+                return;
+            }
+
+            if (!_hasClickerDataBeenInitialised)
+            {
+                InitialiseClickerData();
+            }
+
+            if (_clickerEffectTotalClickAmounts is null)
             {
                 return;
             }
@@ -46,42 +60,9 @@ namespace ImprovedItemInfo.Items.Globals
 
                     var (currentClickAmount, effectDisplayName) = GetEffectClickAmountAndDisplayName(tooltipData);
 
-                    if (effectDisplayName is null)
+                    if (effectDisplayName is null || !_clickerEffectTotalClickAmounts.TryGetValue(effectDisplayName, out int totalClickAmount))
                     {
                         return;
-                    }
-
-                    Mod clickerClass = ModLoader.GetMod(ClickerClassModName);
-                    string clickerClassVersionString = clickerClass.Version.ToString();
-
-                    const string AllEffectNamesCall = "GetAllEffectNames";
-                    const string GetClickEffectAsDictCall = "GetClickEffectAsDict";
-
-                    var clickerEffectNames = clickerClass.Call(AllEffectNamesCall, clickerClassVersionString) as List<string>;
-
-                    if (clickerEffectNames is null)
-                    {
-                        return;
-                    }
-
-                    int totalClickAmount = 0;
-
-                    foreach (string clickerEffectName in clickerEffectNames)
-                    {
-                        var clickerEffectData = clickerClass.Call(GetClickEffectAsDictCall, clickerClassVersionString, clickerEffectName) as Dictionary<string, object>;
-
-                        if (clickerEffectData is null)
-                        {
-                            continue;
-                        }
-
-                        const string DisplayNameKey = "DisplayName";
-                        const string AmountKey = "Amount";
-
-                        if ((clickerEffectData[DisplayNameKey] as string).Equals(effectDisplayName))
-                        {
-                            totalClickAmount = (int)clickerEffectData[AmountKey];
-                        }
                     }
 
                     int clickAmountDelta = totalClickAmount - currentClickAmount;
@@ -109,7 +90,7 @@ namespace ImprovedItemInfo.Items.Globals
             return Language.ActiveCulture.Name switch
             {
                 "en-US" => tooltip.Text.Split(": ", 2),
-                _ => Array.Empty<string>(),
+                _ => [],
             };
         }
 
@@ -137,6 +118,49 @@ namespace ImprovedItemInfo.Items.Globals
 
                     break;
             }
+        }
+
+        private static void InitialiseClickerData()
+        {
+            if (!ModLoader.HasMod(ClickerClassModName))
+            {
+                return;
+            }
+
+            Mod clickerClass = ModLoader.GetMod(ClickerClassModName);
+            string clickerClassVersionString = clickerClass.Version.ToString();
+
+            const string AllEffectNamesCall = "GetAllEffectNames";
+            const string GetClickEffectAsDictCall = "GetClickEffectAsDict";
+
+            var clickerEffectNames = clickerClass.Call(AllEffectNamesCall, clickerClassVersionString) as List<string>;
+
+            if (clickerEffectNames is null)
+            {
+                return;
+            }
+
+            _clickerEffectTotalClickAmounts = [];
+
+            foreach (string clickerEffectName in clickerEffectNames)
+            {
+                var clickerEffectData = clickerClass.Call(GetClickEffectAsDictCall, clickerClassVersionString, clickerEffectName) as Dictionary<string, object>;
+
+                const string DisplayNameKey = "DisplayName";
+                const string AmountKey = "Amount";
+
+                if (clickerEffectData is null || clickerEffectData[DisplayNameKey] is not LocalizedText)
+                {
+                    continue;
+                }
+
+                string localisedClickerEffectDisplayName = (clickerEffectData[DisplayNameKey] as LocalizedText).Value;
+                int totalClickAmount = (int)clickerEffectData[AmountKey];
+
+                _clickerEffectTotalClickAmounts.TryAdd(localisedClickerEffectDisplayName, totalClickAmount);
+            }
+
+            _hasClickerDataBeenInitialised = true;
         }
     }
 }
