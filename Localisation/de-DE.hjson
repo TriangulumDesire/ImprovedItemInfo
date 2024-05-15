@@ -1,0 +1,126 @@
+Mods: {
+	ImprovedItemInfo: {
+		AmmoCategory: {
+			Arrow: Pfeil
+			Bullet: Kugel
+			Coin: Münze
+			Dart: Pfeilchen
+			Flare: Fackel
+			Gel: Gel
+			Rocket: Rakete
+			Solution: Lösung
+		}
+
+		Tooltips: {
+			AmmoCategory: Munition in der {0} ([i:{1}]) Kategorie
+			MiningSpeed: "{0}{1} Mining-Geschwindigkeit"
+			ProjectileVelocity: "{0}{1} Projektilgeschwindigkeit"
+			ProjectileVelocityMultiplier: x{0} Projektilgeschwindigkeitsmultiplikator
+			UsesAmmunition: Verwendet {0} ([i:{1}]) als Munition
+			UsesDartAmmunition: Verwendet {0} ([i:1310]) als Munition
+			UsesSeedAndDartAmmunition: Verwendet {0} ([i:{1}])/Pfeilchen ([i:1310]) als Munition
+		}
+
+		Configs: {
+			DisplayConfig: {
+				DisplayName: Anzeigekonfiguration
+
+				Header: {
+					ColourOptions: Farboptionen
+					GeneralOptions: Allgemeine Optionen
+					CrossModSupportOptions: Cross-Mod-Supportoptionen
+				}
+
+				AmmoTooltipsDisplay: {
+					Label: Munitions-Tooltips anzeigen
+					Tooltip: Ob Tooltips für Munitionskategorien angezeigt werden sollen
+				}
+
+				ClickEffectCountDisplay: {
+					Label: Zeigen Sie verbesserte Klickeffekt-Zählerstatistiken an
+					Tooltip: Ob für den Tooltip zur Anzahl der Klickeffekte verbessert werden soll
+				}
+
+				ColouredClickEffectCount: {
+					Label: Farbiger Tooltip zur Anzahl der Klickeffekte
+					Tooltip: Ob für den Tooltip zur Anzahl der Klickeffekte eine rote/grüne Farbe verwendet werden soll (Clicker Class)
+				}
+
+				ColouredCriticalChance: {
+					Label: Farbiger Tooltip zur kritischen Chance
+					Tooltip: Ob für den Tooltip zur kritischen Chance eine rote/grüne Farbe verwendet werden soll
+				}
+
+				ColouredDamage: {
+					Label: Farbiger Schadens-Tooltip
+					Tooltip: Ob für den Schadens-Tooltip eine rote/grüne Farbe verwendet werden soll
+				}
+
+				ColouredKnockback: {
+					Label: Farbiger Rückstoß-Tooltip
+					Tooltip: Ob für den Rückstoß-Tooltip eine rote/grüne Farbe verwendet werden soll
+				}
+
+				ColouredManaUse: {
+					Label: Kurzinfo zur Verwendung von farbigem Mana
+					Tooltip: Ob für den Manaverbrauchs-Tooltip eine rote/grüne Farbe verwendet werden soll
+				}
+
+				ColouredMiningSpeed: {
+					Label: Farbiger Tooltip zur Bergbaugeschwindigkeit
+					Tooltip: Ob für den Tooltip zur Mining-Geschwindigkeit eine rote/grüne Farbe verwendet werden soll
+				}
+
+				ColouredProjectileVelocity: {
+					Label: Farbiger Tooltip zur Projektilgeschwindigkeit
+					Tooltip: Ob für den Tooltip der Projektilgeschwindigkeit eine rote/grüne Farbe verwendet werden soll
+				}
+
+				ColouredSpeed: {
+					Label: Farbiger Geschwindigkeits-Tooltip
+					Tooltip: Ob für den Geschwindigkeits-Tooltip eine rote/grüne Farbe verwendet werden soll
+				}
+
+				CriticalChanceDisplay: {
+					Label: Zeigt verbesserte Statistiken zur kritischen Trefferchance an
+					Tooltip: Ob für der Tooltip zur Chance auf einen kritischen Treffer verbessert werden soll
+				}
+
+				DamageDisplay: {
+					Label: Verbesserte Schadensstatistiken anzeigen
+					Tooltip: Ob der Schadens-Tooltip verbessert werden soll
+				}
+
+				KnockbackDisplay: {
+					Label: Zeigt verbesserte Rückstoßstatistiken an
+					Tooltip: Ob der Rückstoß-Tooltip verbessert werden soll
+				}
+
+				ManaUseDisplay: {
+					Label: Zeigt verbesserte Manaverbrauchsstatistiken an
+					Tooltip: Ob der Manaverbrauchs-Tooltip verbessert werden soll
+				}
+
+				MiningSpeedDisplay: {
+					Label: Statistiken zur Mining-Geschwindigkeit anzeigen
+					Tooltip: Ob der Tooltip zur Abbaugeschwindigkeit für Spitzhacken, Äxte und Hämmer angezeigt werden soll
+				}
+
+				ProjectileVelocityDisplay: {
+					Label: Statistiken zur Projektilgeschwindigkeit anzeigen
+					Tooltip: Ob der Tooltip zur Projektilgeschwindigkeit angezeigt werden soll
+				}
+
+				ProjectileVelocityMultiplierDisplay: {
+					Label: Statistiken zum Multiplikator der Projektilgeschwindigkeit anzeigen
+					Tooltip: Ob der Tooltip des Projektilgeschwindigkeitsmultiplikators angezeigt werden soll
+				}
+
+				SpeedDisplay: {
+					Label: Verbesserte Geschwindigkeitsstatistiken anzeigen
+					Tooltip: Ob der Geschwindigkeits-Tooltip verbessert werden soll
+				}
+			}
+		}
+	}
+}

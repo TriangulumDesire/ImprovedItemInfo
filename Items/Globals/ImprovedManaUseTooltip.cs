@@ -66,6 +66,7 @@ namespace ImprovedItemInfo.Items.Globals
             return Language.ActiveCulture.Name switch
             {
                 "en-US" => tooltipData[^1].Equals("mana"),
+                "de-DE" => tooltipData[^1].Equals("Mana"),
                 _ => false,
             };
         }
@@ -74,7 +75,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" => int.Parse(tooltipData[1]),
+                "en-US" or "de-DE" => int.Parse(tooltipData[1]),
                 _ => 0,
             };
         }
@@ -83,7 +84,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US":
+                case "en-US" or "de-DE":
                     tooltip.Text = $"{tooltipData[0]} {tooltipData[1]} ({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
 
                     foreach (string tooltipElement in tooltipData.Skip(2))

@@ -18,7 +18,6 @@ namespace ImprovedItemInfo.Items.Globals
         private const int BlowgunInternalID = 986;
 
         private const int SeedInternalID = 283;
-        private const int PoisonDartInternalID = 1310;
 
         private static readonly Dictionary<int, string> _ammoTypeIDLookup = new()
         {
@@ -50,13 +49,13 @@ namespace ImprovedItemInfo.Items.Globals
 
                     try
                     {
-                        string ammoType = _ammoTypeIDLookup.ContainsKey(item.ammo)
-                            ? Language.GetTextValue($"Mods.ImprovedItemInfo.AmmoCategory.{_ammoTypeIDLookup[item.ammo]}")
+                        string ammoType = _ammoTypeIDLookup.TryGetValue(item.ammo, out string ammoName)
+                            ? Language.GetTextValue($"Mods.ImprovedItemInfo.AmmoCategory.{ammoName}")
                             : Lang.GetItemNameValue(item.ammo);
 
                         if (item.Name != ammoType)
                         {
-                            tooltip.Text = GetAmmoCategoryText(ammoType, item.ammo);
+                            tooltip.Text = Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.AmmoCategory", ammoType, item.ammo);
                         }
                     }
                     catch (Exception)
@@ -70,8 +69,8 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 try
                 {
-                    string ammoType = _ammoTypeIDLookup.ContainsKey(item.useAmmo)
-                        ? Language.GetTextValue($"Mods.ImprovedItemInfo.AmmoCategory.{_ammoTypeIDLookup[item.useAmmo]}")
+                    string ammoType = _ammoTypeIDLookup.TryGetValue(item.useAmmo, out string ammoName)
+                        ? Language.GetTextValue($"Mods.ImprovedItemInfo.AmmoCategory.{ammoName}")
                         : Lang.GetItemNameValue(item.useAmmo);
 
                     TooltipLine ammoTypeTooltip = null;
@@ -80,7 +79,7 @@ namespace ImprovedItemInfo.Items.Globals
                     {
                         if (item.netID == BlowpipeInternalID || item.netID == BlowgunInternalID)
                         {
-                            string tooltipText = GetSeedAndDartUseAmmoCategoryText(item.useAmmo);
+                            string tooltipText = Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.UsesSeedAndDartAmmunition", Lang.GetItemNameValue(SeedInternalID), item.useAmmo);
 
                             if (tooltipText is null)
                             {
@@ -91,7 +90,7 @@ namespace ImprovedItemInfo.Items.Globals
                         }
                         else
                         {
-                            string tooltipText = GetDartUseAmmoCategoryText(ammoType);
+                            string tooltipText = Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.UsesDartAmmunition", ammoType);
 
                             if (tooltipText is null)
                             {
@@ -103,7 +102,7 @@ namespace ImprovedItemInfo.Items.Globals
                     }
                     else
                     {
-                        string tooltipText = GetUseAmmoCategoryText(ammoType, item.useAmmo);
+                        string tooltipText = Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.UsesAmmunition", ammoType, item.useAmmo);
 
                         if (tooltipText is null)
                         {
@@ -129,44 +128,6 @@ namespace ImprovedItemInfo.Items.Globals
 
                 }
             }
-        }
-
-        private static string GetAmmoCategoryText(in string ammoType, in int itemAmmoID)
-        {
-            return Language.ActiveCulture.Name switch
-            {
-                "en-US" => $"Ammo in {ammoType} ([i:{itemAmmoID}]) category",
-                _ => null,
-            };
-        }
-
-        private static string GetSeedAndDartUseAmmoCategoryText(in int itemUseAmmoID)
-        {
-            string seedAmmoType = Lang.GetItemNameValue(SeedInternalID);
-
-            return Language.ActiveCulture.Name switch
-            {
-                "en-US" => $"Uses {seedAmmoType} ([i:{itemUseAmmoID}])/Dart ([i:{PoisonDartInternalID}]) as ammo",
-                _ => null,
-            };
-        }
-
-        private static string GetDartUseAmmoCategoryText(in string ammoType)
-        {
-            return Language.ActiveCulture.Name switch
-            {
-                "en-US" => $"Uses {ammoType} ([i:{PoisonDartInternalID}]) as ammo",
-                _ => null,
-            };
-        }
-
-        private static string GetUseAmmoCategoryText(in string ammoType, in int itemUseAmmoID)
-        {
-            return Language.ActiveCulture.Name switch
-            {
-                "en-US" => $"Uses {ammoType} ([i:{itemUseAmmoID}]) as ammo",
-                _ => null,
-            };
         }
     }
 }

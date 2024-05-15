@@ -11,204 +11,114 @@ Mods: {
 			Solution: Solution
 		}
 
-		DisplayConfig: {
-			AmmoTooltipsDisplay: {
-				Label: Display Ammo Tooltips
-				Tooltip: Whether to display tooltips for ammo categories
-			}
-
-			ClickEffectCountDisplay: {
-				Label: Display Improved Click Effect Count Stats
-				Tooltip: Whether to improve the click effect count tooltip
-			}
-
-			ColouredClickEffectCount: {
-				Label: Coloured Click Effect Count Tooltip
-				Tooltip: Whether to use red/green colouring for the click effect count tooltip (Clicker Class)
-			}
-
-			ColouredCriticalChance: {
-				Label: Coloured Critical Chance Tooltip
-				Tooltip: Whether to use red/green colouring for the critical chance tooltip
-			}
-
-			ColouredDamage: {
-				Label: Coloured Damage Tooltip
-				Tooltip: Whether to use red/green colouring for the damage tooltip
-			}
-
-			ColouredKnockback: {
-				Label: Coloured Knockback Tooltip
-				Tooltip: Whether to use red/green colouring for the knockback tooltip
-			}
-
-			ColouredManaUse: {
-				Label: Coloured Mana Use Tooltip
-				Tooltip: Whether to use red/green colouring for the mana use tooltip
-			}
-
-			ColouredMiningSpeed: {
-				Label: Coloured Mining Speed Tooltip
-				Tooltip: Whether to use red/green colouring for the mining speed tooltip
-			}
-
-			ColouredProjectileVelocity: {
-				Label: Coloured Projectile Velocity Tooltip
-				Tooltip: Whether to use red/green colouring for the projectile velocity tooltip
-			}
-
-			ColouredSpeed: {
-				Label: Coloured Speed Tooltip
-				Tooltip: Whether to use red/green colouring for the speed tooltip
-			}
-
-			CriticalChanceDisplay: {
-				Label: Display Improved Critical Strike Chance Stats
-				Tooltip: Whether to improve the critical strike chance tooltip
-			}
-
-			DamageDisplay: {
-				Label: Display Improved Damage Stats
-				Tooltip: Whether to improve the damage tooltip
-			}
-
-			KnockbackDisplay: {
-				Label: Display Improved Knockback Stats
-				Tooltip: Whether to improve the knockback tooltip
-			}
-
-			ManaUseDisplay: {
-				Label: Display Improved Mana Use Stats
-				Tooltip: Whether to improve the mana usage tooltip
-			}
-
-			MiningSpeedDisplay: {
-				Label: Display Mining Speed Stats
-				Tooltip: Whether to display the mining speed tooltip for pickaxes, axes, and hammers
-			}
-
-			ProjectileVelocityDisplay: {
-				Label: Display Projectile Velocity Stats
-				Tooltip: Whether to display the projectile velocity tooltip
-			}
-
-			ProjectileVelocityMultiplierDisplay: {
-				Label: Display Projectile Velocity Multiplier Stats
-				Tooltip: Whether to display the projectile velocity multiplier tooltip
-			}
-
-			SpeedDisplay: {
-				Label: Display Improved Speed Stats
-				Tooltip: Whether to improve the speed tooltip
-			}
-
-			Header: {
-				ColourOptions: Colour Options
-				GeneralOptions: General Options
-				CrossModSupportOptions: Cross-mod Support Options
-			}
-
-			Label: Display Config
-		}
-
 		Tooltips: {
+			AmmoCategory: Ammo in {0} ([i:{1}]) category
 			MiningSpeed: "{0}{1} mining speed"
 			ProjectileVelocity: "{0}{1} projectile velocity"
 			ProjectileVelocityMultiplier: x{0} projectile velocity multiplier
+			UsesAmmunition: Uses {0} ([i:{1}]) as ammo
+			UsesDartAmmunition: Uses {0} ([i:1310]) as ammo
+			UsesSeedAndDartAmmunition: Uses {0} ([i:{1}])/Dart ([i:1310]) as ammo
 		}
 
 		Configs: {
 			DisplayConfig: {
-				DisplayName: "{$Mods.ImprovedItemInfo.DisplayConfig.Label}"
+				DisplayName: Display Config
 
-				IsDamageImproved: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.DamageDisplay.Tooltip}"
+				Header: {
+					ColourOptions: Colour Options
+					GeneralOptions: General Options
+					CrossModSupportOptions: Cross-mod Support Options
 				}
 
-				IsCriticalChanceImproved: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.CriticalChanceDisplay.Tooltip}"
+				AmmoTooltipsDisplay: {
+					Label: Display Ammo Tooltips
+					Tooltip: Whether to display tooltips for ammo categories
 				}
 
-				IsSpeedImproved: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.SpeedDisplay.Tooltip}"
+				ClickEffectCountDisplay: {
+					Label: Display Improved Click Effect Count Stats
+					Tooltip: Whether to improve the click effect count tooltip
 				}
 
-				IsKnockbackImproved: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.KnockbackDisplay.Tooltip}"
+				ColouredClickEffectCount: {
+					Label: Coloured Click Effect Count Tooltip
+					Tooltip: Whether to use red/green colouring for the click effect count tooltip (Clicker Class)
 				}
 
-				IsManaUseImproved: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ManaUseDisplay.Tooltip}"
+				ColouredCriticalChance: {
+					Label: Coloured Critical Chance Tooltip
+					Tooltip: Whether to use red/green colouring for the critical chance tooltip
 				}
 
-				DisplayProjectileVelocityTooltip: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityDisplay.Tooltip}"
+				ColouredDamage: {
+					Label: Coloured Damage Tooltip
+					Tooltip: Whether to use red/green colouring for the damage tooltip
 				}
 
-				DisplayProjectileVelocityMultiplierTooltip: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ProjectileVelocityMultiplierDisplay.Tooltip}"
+				ColouredKnockback: {
+					Label: Coloured Knockback Tooltip
+					Tooltip: Whether to use red/green colouring for the knockback tooltip
 				}
 
-				DisplayAmmoTooltips: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.AmmoTooltipsDisplay.Tooltip}"
+				ColouredManaUse: {
+					Label: Coloured Mana Use Tooltip
+					Tooltip: Whether to use red/green colouring for the mana use tooltip
 				}
 
-				IsDamageColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredDamage.Tooltip}"
+				ColouredMiningSpeed: {
+					Label: Coloured Mining Speed Tooltip
+					Tooltip: Whether to use red/green colouring for the mining speed tooltip
 				}
 
-				IsCriticalChanceColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredCriticalChance.Tooltip}"
+				ColouredProjectileVelocity: {
+					Label: Coloured Projectile Velocity Tooltip
+					Tooltip: Whether to use red/green colouring for the projectile velocity tooltip
 				}
 
-				IsSpeedColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredSpeed.Tooltip}"
+				ColouredSpeed: {
+					Label: Coloured Speed Tooltip
+					Tooltip: Whether to use red/green colouring for the speed tooltip
 				}
 
-				IsKnockbackColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredKnockback.Tooltip}"
+				CriticalChanceDisplay: {
+					Label: Display Improved Critical Strike Chance Stats
+					Tooltip: Whether to improve the critical strike chance tooltip
 				}
 
-				IsManaUseColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredManaUse.Tooltip}"
+				DamageDisplay: {
+					Label: Display Improved Damage Stats
+					Tooltip: Whether to improve the damage tooltip
 				}
 
-				IsProjectileVelocityColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredProjectileVelocity.Tooltip}"
+				KnockbackDisplay: {
+					Label: Display Improved Knockback Stats
+					Tooltip: Whether to improve the knockback tooltip
 				}
 
-				IsClickEffectCountImproved: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ClickEffectCountDisplay.Tooltip}"
+				ManaUseDisplay: {
+					Label: Display Improved Mana Use Stats
+					Tooltip: Whether to improve the mana usage tooltip
 				}
 
-				IsClickEffectCountColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredClickEffectCount.Tooltip}"
+				MiningSpeedDisplay: {
+					Label: Display Mining Speed Stats
+					Tooltip: Whether to display the mining speed tooltip for pickaxes, axes, and hammers
 				}
 
-				DisplayMiningSpeedTooltip: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.MiningSpeedDisplay.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.MiningSpeedDisplay.Tooltip}"
+				ProjectileVelocityDisplay: {
+					Label: Display Projectile Velocity Stats
+					Tooltip: Whether to display the projectile velocity tooltip
 				}
 
-				IsMiningSpeedColoured: {
-					Label: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredMiningSpeed.Label}"
-					Tooltip: "{$Mods.ImprovedItemInfo.DisplayConfig.ColouredMiningSpeed.Tooltip}"
+				ProjectileVelocityMultiplierDisplay: {
+					Label: Display Projectile Velocity Multiplier Stats
+					Tooltip: Whether to display the projectile velocity multiplier tooltip
+				}
+
+				SpeedDisplay: {
+					Label: Display Improved Speed Stats
+					Tooltip: Whether to improve the speed tooltip
 				}
 			}
 		}

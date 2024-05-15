@@ -89,7 +89,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" => tooltip.Text.Split(": ", 2),
+                "en-US" or "de-DE" => tooltip.Text.Split(": ", 2),
                 _ => [],
             };
         }
@@ -98,7 +98,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US":
+                case "en-US" or "de-DE":
                     int currentClickAmount = int.Parse(tooltipData.First().Split(' ')[0]);
                     string effectDisplayName = tooltipData.Last()[1..^1].Split(':').Last();
 
@@ -113,7 +113,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US":
+                case "en-US" or "de-DE":
                     tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) clicks: {tooltipData.Last()}";
 
                     break;
