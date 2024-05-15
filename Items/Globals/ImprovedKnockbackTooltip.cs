@@ -64,6 +64,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("knockback"),
                 "de-DE" => tooltipData[^1].Equals("Rückstoß"),
+                "zh-Hans" => tooltipData[^1].EndsWith("击退力"),
                 _ => false,
             };
         }
@@ -83,6 +84,30 @@ namespace ImprovedItemInfo.Items.Globals
                     for (int i = 0; i < tooltipData.Length; ++i)
                     {
                         tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                    }
+
+                    foreach (string tooltipLine in tooltipLines.Skip(1))
+                    {
+                        tooltip.Text += "\n" + tooltipLine;
+                    }
+
+                    break;
+
+                case "zh-Hans":
+                    tooltip.Text = Math.Round(totalKnockback, 2).ToString();
+
+                    if (Math.Abs(knockbackDelta) > float.Epsilon)
+                    {
+                        tooltip.Text += $" ({(knockbackDelta > 0.0f ? "+" : "-")}{Math.Abs(Math.Round(knockbackDelta, 2))})";
+                    }
+
+                    tooltip.Text += "(";
+                    tooltip.Text += tooltipData[0][..^"击退力".Length];
+                    tooltip.Text += ")击退力";
+
+                    foreach (string tooltipElement in tooltipData.Skip(1))
+                    {
+                        tooltip.Text += tooltipElement;
                     }
 
                     foreach (string tooltipLine in tooltipLines.Skip(1))

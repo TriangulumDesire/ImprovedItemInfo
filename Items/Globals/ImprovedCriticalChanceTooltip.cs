@@ -124,6 +124,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("chance"),
                 "de-DE" => tooltipData[^1].Equals("Trefferchance"),
+                "zh-Hans" => tooltipData[^1].EndsWith("暴击率"),
                 _ => false,
             };
         }
@@ -133,6 +134,7 @@ namespace ImprovedItemInfo.Items.Globals
             return Language.ActiveCulture.Name switch
             {
                 "en-US" or "de-DE" => int.Parse(tooltipData[0][0..^1]),
+                "zh-Hans" => int.Parse(tooltipData[0].Split('%')[0]),
                 _ => 0,
             };
         }
@@ -147,6 +149,23 @@ namespace ImprovedItemInfo.Items.Globals
                     foreach (string tooltipElement in tooltipData.Skip(1))
                     {
                         tooltip.Text += " " + tooltipElement;
+                    }
+
+                    break;
+
+                case "zh-Hans":
+                    string[] splitTooltipData = tooltipData[0].Split('%');
+
+                    tooltip.Text = $"{splitTooltipData[0]}% ({(criticalChanceDelta > 0 ? "+" : "-")}{Math.Abs(criticalChanceDelta)}%)";
+
+                    foreach (string splitTooltipDataElement in splitTooltipData.Skip(1))
+                    {
+                        tooltip.Text += splitTooltipDataElement;
+                    }
+
+                    foreach (string tooltipElement in tooltipData.Skip(1))
+                    {
+                        tooltip.Text += tooltipElement;
                     }
 
                     break;

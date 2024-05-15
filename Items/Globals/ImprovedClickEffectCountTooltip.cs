@@ -16,6 +16,7 @@ namespace ImprovedItemInfo.Items.Globals
         private const string ClickEffectTooltipStem = "ClickEffect";
 
         private static Dictionary<string, int> _clickerEffectTotalClickAmounts = null;
+        private static string _previousLanguageName = string.Empty;
         private static bool _hasClickerDataBeenInitialised = false;
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -25,7 +26,7 @@ namespace ImprovedItemInfo.Items.Globals
                 return;
             }
 
-            if (!_hasClickerDataBeenInitialised)
+            if (!_hasClickerDataBeenInitialised || Language.ActiveCulture.Name != _previousLanguageName)
             {
                 InitialiseClickerData();
             }
@@ -90,23 +91,32 @@ namespace ImprovedItemInfo.Items.Globals
             return Language.ActiveCulture.Name switch
             {
                 "en-US" or "de-DE" => tooltip.Text.Split(": ", 2),
+                "zh-Hans" => tooltip.Text.Split(":", 2),
                 _ => [],
             };
         }
 
         private static (int, string) GetEffectClickAmountAndDisplayName(in string[] tooltipData)
         {
+            int currentClickAmount = 0;
+            string effectDisplayName = null;
+
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US" or "de-DE":
-                    int currentClickAmount = int.Parse(tooltipData.First().Split(' ')[0]);
-                    string effectDisplayName = tooltipData.Last()[1..^1].Split(':').Last();
+                    currentClickAmount = int.Parse(tooltipData.First().Split(' ')[0]);
+                    effectDisplayName = tooltipData.Last()[1..^1].Split(':').Last();
 
-                    return (currentClickAmount, effectDisplayName);
+                    break;
 
-                default:
-                    return (0, null);
+                case "zh-Hans":
+                    currentClickAmount = int.Parse(tooltipData.First().Replace("次点击", null));
+                    effectDisplayName = tooltipData.Last()[1..^1].Split(':').Last();
+
+                    break;
             }
+
+            return (currentClickAmount, effectDisplayName);
         }
 
         private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int currentClickAmount, in int clickAmountDelta)
@@ -115,6 +125,11 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 case "en-US" or "de-DE":
                     tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) clicks: {tooltipData.Last()}";
+
+                    break;
+
+                case "zh-Hans":
+                    tooltip.Text = $"{currentClickAmount}({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)})次点击:{tooltipData.Last()}";
 
                     break;
             }
@@ -161,6 +176,7 @@ namespace ImprovedItemInfo.Items.Globals
             }
 
             _hasClickerDataBeenInitialised = true;
+            _previousLanguageName = Language.ActiveCulture.Name;
         }
     }
 }

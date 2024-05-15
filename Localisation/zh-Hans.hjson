@@ -1,0 +1,126 @@
+﻿Mods: {
+	ImprovedItemInfo: {
+		AmmoCategory: {
+			Arrow: 箭
+			Bullet: 子弹
+			Coin: 硬币
+			Dart: 镖
+			Flare: 發焰筒
+			Gel: 凝胶
+			Rocket: 火箭
+			Solution: 溶液
+		}
+
+		Tooltips: {
+			AmmoCategory: 类别{0}([i:{1}])弹药
+			MiningSpeed: "{0}{1}采矿速度"
+			ProjectileVelocity: "{0}{1}弹丸速度"
+			ProjectileVelocityMultiplier: x{0}弹丸速度倍增器
+			UsesAmmunition: 使用{0}([i:{1}])作为弹药
+			UsesDartAmmunition: 使用{0}([i:1310])作为弹药
+			UsesSeedAndDartAmmunition: 使用{0}([i:{1}])/镖([i:1310])作为弹药
+		}
+
+		Configs: {
+			DisplayConfig: {
+				DisplayName: 工具提示配置
+
+				Header: {
+					ColourOptions: 颜色选项
+					GeneralOptions: 常规选项
+					CrossModSupportOptions: 交叉修改支持选项
+				}
+
+				AmmoTooltipsDisplay: {
+					Label: 显示弹药工具提示
+					Tooltip: 是否显示弹药类别的工具提示
+				}
+
+				ClickEffectCountDisplay: {
+					Label: 显示改进的点击效果计数统计信息
+					Tooltip: 是否提高点击效果计数工具提示
+				}
+
+				ColouredClickEffectCount: {
+					Label: 彩色点击效果计数工具提示
+					Tooltip: 是否对点击效果计数工具提示使用红/绿着色（Clicker Class）
+				}
+
+				ColouredCriticalChance: {
+					Label: 彩色暴击几率工具提示
+					Tooltip: 是否对关键机会工具提示使用红色/绿色着色
+				}
+
+				ColouredDamage: {
+					Label: 彩色损坏工具提示
+					Tooltip: 是否对损坏工具提示使用红色/绿色着色
+				}
+
+				ColouredKnockback: {
+					Label: 彩色击退工具提示
+					Tooltip: 是否对击退工具提示使用红色/绿色着色
+				}
+
+				ColouredManaUse: {
+					Label: 彩色法力使用工具提示
+					Tooltip: 是否对法力使用工具提示使用红色/绿色
+				}
+
+				ColouredMiningSpeed: {
+					Label: 彩色采矿速度工具提示
+					Tooltip: 是否对采矿速度工具提示使用红色/绿色着色
+				}
+
+				ColouredProjectileVelocity: {
+					Label: 彩色射弹速度工具提示
+					Tooltip: 是否对弹丸速度工具提示使用红色/绿色着色
+				}
+
+				ColouredSpeed: {
+					Label: 彩色速度工具提示
+					Tooltip: 是否对速度工具提示使用红色/绿色着色
+				}
+
+				CriticalChanceDisplay: {
+					Label: 显示改进的暴击率统计数据
+					Tooltip: 是否提高暴击率工具提示
+				}
+
+				DamageDisplay: {
+					Label: 显示改进的伤害统计数据
+					Tooltip: 是否改进伤害提示
+				}
+
+				KnockbackDisplay: {
+					Label: 显示改进的击退统计数据
+					Tooltip: 是否改进击退提示
+				}
+
+				ManaUseDisplay: {
+					Label: 显示改进的法力使用统计数据
+					Tooltip: 是否改进法力使用提示
+				}
+
+				MiningSpeedDisplay: {
+					Label: 显示挖矿速度统计数据
+					Tooltip: 是否显示镐、斧头和锤子的采矿速度工具提示
+				}
+
+				ProjectileVelocityDisplay: {
+					Label: 显示弹丸速度统计数据
+					Tooltip: 是否显示弹丸速度工具提示
+				}
+
+				ProjectileVelocityMultiplierDisplay: {
+					Label: 显示弹丸速度倍增器统计数据
+					Tooltip: 是否显示弹丸速度倍增工具提示
+				}
+
+				SpeedDisplay: {
+					Label: 显示改进的速度统计数据
+					Tooltip: 是否提高工具提示速度
+				}
+			}
+		}
+	}
+}

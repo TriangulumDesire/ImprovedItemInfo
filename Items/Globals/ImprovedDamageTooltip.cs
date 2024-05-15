@@ -66,6 +66,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("damage"),
                 "de-DE" => tooltipData[^1].Equals("Schaden"),
+                "zh-Hans" => tooltipData[^1].EndsWith("伤害"),
                 _ => false,
             };
         }
@@ -74,7 +75,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" or "de-DE" => int.Parse(tooltipData[0]),
+                "en-US" or "de-DE" or "zh-Hans" => int.Parse(tooltipData[0]),
                 _ => 0,
             };
         }
@@ -83,7 +84,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US" or "de-DE":
+                case "en-US" or "de-DE" or "zh-Hans":
                     tooltip.Text = $"{tooltipData[0]} ({(damageDelta > 0 ? "+" : "-")}{Math.Abs(damageDelta)})";
 
                     foreach (string tooltipElement in tooltipData.Skip(1))

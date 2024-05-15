@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -86,6 +87,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("speed"),
                 "de-DE" => tooltipData[^1].Equals("Tempo"),
+                "zh-Hans" => tooltipData[^1].EndsWith("速度"),
                 _ => false,
             };
         }
@@ -105,6 +107,25 @@ namespace ImprovedItemInfo.Items.Globals
                     for (int i = 0; i < tooltipData.Length; ++i)
                     {
                         tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                    }
+
+                    break;
+
+                case "zh-Hans":
+                    tooltip.Text = $"{totalSpeed}";
+
+                    if (speedDelta != 0)
+                    {
+                        tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
+                    }
+
+                    tooltip.Text += "(";
+                    tooltip.Text += tooltipData[0][..^"速度".Length];
+                    tooltip.Text += ")速度";
+
+                    foreach (string tooltipElement in tooltipData.Skip(1))
+                    {
+                        tooltip.Text += tooltipElement;
                     }
 
                     break;

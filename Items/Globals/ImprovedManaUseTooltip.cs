@@ -67,6 +67,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("mana"),
                 "de-DE" => tooltipData[^1].Equals("Mana"),
+                "zh-Hans" => tooltipData[^1].Contains("魔力"),
                 _ => false,
             };
         }
@@ -76,6 +77,7 @@ namespace ImprovedItemInfo.Items.Globals
             return Language.ActiveCulture.Name switch
             {
                 "en-US" or "de-DE" => int.Parse(tooltipData[1]),
+                "zh-Hans" => int.Parse(tooltipData[0]["使用".Length..^"魔力".Length]),
                 _ => 0,
             };
         }
@@ -86,6 +88,23 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 case "en-US" or "de-DE":
                     tooltip.Text = $"{tooltipData[0]} {tooltipData[1]} ({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
+
+                    foreach (string tooltipElement in tooltipData.Skip(2))
+                    {
+                        tooltip.Text += " " + tooltipElement;
+                    }
+
+                    foreach (string tooltipLine in tooltipLines.Skip(1))
+                    {
+                        tooltip.Text += "\n" + tooltipLine;
+                    }
+
+                    break;
+
+                case "zh-Hans":
+                    tooltip.Text = tooltipData[0][..^"魔力".Length];
+                    tooltip.Text += $"({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
+                    tooltip.Text += "魔力";
 
                     foreach (string tooltipElement in tooltipData.Skip(2))
                     {

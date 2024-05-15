@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Localisation\de-DE.hjson" />
+    <None Remove="Localisation\zh-Hans.hjson" />
   </ItemGroup>
 </Project>
