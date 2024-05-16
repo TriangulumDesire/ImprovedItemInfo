@@ -64,6 +64,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("knockback"),
                 "de-DE" => tooltipData[^1].Equals("Rückstoß"),
+                "ru-RU" => tooltipData[^1].Equals("отбрасывание"),
                 "zh-Hans" => tooltipData[^1].EndsWith("击退力"),
                 _ => false,
             };
@@ -73,7 +74,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US" or "de-DE":
+                case "en-US" or "de-DE" or "ru-RU":
                     tooltip.Text = Math.Round(totalKnockback, 2).ToString();
 
                     if (Math.Abs(knockbackDelta) > float.Epsilon)

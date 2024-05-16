@@ -90,7 +90,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" or "de-DE" => tooltip.Text.Split(": ", 2),
+                "en-US" or "de-DE" or "ru-RU" => tooltip.Text.Split(": ", 2),
                 "zh-Hans" => tooltip.Text.Split(":", 2),
                 _ => [],
             };
@@ -103,7 +103,7 @@ namespace ImprovedItemInfo.Items.Globals
 
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US" or "de-DE":
+                case "en-US" or "de-DE" or "ru-RU":
                     currentClickAmount = int.Parse(tooltipData.First().Split(' ')[0]);
                     effectDisplayName = tooltipData.Last()[1..^1].Split(':').Last();
 
@@ -125,6 +125,11 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 case "en-US" or "de-DE":
                     tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) clicks: {tooltipData.Last()}";
+
+                    break;
+
+                case "ru-RU":
+                    tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) кликов: {tooltipData.Last()}";
 
                     break;
 

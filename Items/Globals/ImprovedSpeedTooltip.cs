@@ -87,6 +87,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("speed"),
                 "de-DE" => tooltipData[^1].Equals("Tempo"),
+                "ru-RU" => tooltipData[^1].Equals("скорость"),
                 "zh-Hans" => tooltipData[^1].EndsWith("速度"),
                 _ => false,
             };
@@ -96,7 +97,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US" or "de-DE":
+                case "en-US" or "de-DE" or "ru-RU":
                     tooltip.Text = $"{totalSpeed}";
 
                     if (speedDelta != 0)
