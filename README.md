@@ -6,11 +6,18 @@ It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemSta
   
 Has cross-mod support with Clicker Class and Calamity.  
   
+Supported languages:  
+* English  
+* German  
+* Russian  
+* Chinese (Simplified)  
+  
+Language translations might not be 100% accurate. Please report any incorrect translations as an issue.  
+  
 If you have anything you wish to contribute or want to fork this mod, you're more than welcome to.  
-The mod currently only works in English.  
 
 ## To do.
-* Localisation is very ad-hoc and only in English. Need to replace it fully with HJSON files.  
+* Localisation for the remaining languages.  
 
 ## Stats affected.
 * Damage.  
@@ -39,6 +46,11 @@ The mod currently only works in English.
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.4:  
+  * Add support for German, Chinese (simplified), and Russian languages.
+  * Optimise improved clicker tooltip.
+  * Update to latest tModLoader version and .NET ABI.
+
 * v1.3:  
   * Add mining speed tooltip.  
   * Remove use of deprecated tModLoader features.  

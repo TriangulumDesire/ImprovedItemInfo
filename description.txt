@@ -3,13 +3,20 @@ It essentially shows how the weapon is affected by modifiers and accessories, as
 
 It is a spiritual successor to ItemStats+ (by Xahlicem) rewritten completely from scratch.
 
-Has cross-mod support with Clicker Class and Calamity (Thorium is planned when it is ported to tModLoader 1.4).
+Has cross-mod support with Clicker Class and Calamity.
 
 All tooltips that this mod affects are configurable.
 
+Supported languages:
+* English
+* German
+* Russian
+* Chinese (Simplified)
+
+Language translations might not be 100% accurate. Please report any incorrect translations as an issue on the GitHub project (linked below).
+
 The mod is completely open source and is avaiable here: https://github.com/LucidSigma/ImprovedItemInfo
 If you have anything you wish to contribute or want to fork it, you're more than welcome to.
-The mod currently only works in English.
 
 Stats affected:
 * Damage.
@@ -22,7 +29,6 @@ Stats affected:
 * Projectile velocity.
 * Projectile velocity multiplier.
 * Clicks to activate click effect (if Clicker Class is installed).
-* Thorium bard and healer stats are planned when Thorium is ported to 1.4.
 
 Examples:
 Weapon with no modifiers:
@@ -64,6 +70,11 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.4:
+* Add support for German, Chinese (simplified), and Russian languages.
+* Optimise improved clicker tooltip.
+* Update to latest tModLoader version and .NET ABI.
+
 v1.3:
 * Add mining speed tooltip.
 * Remove use of deprecated tModLoader features.
