@@ -13,7 +13,7 @@ Mods: {
 
 		Tooltips: {
 			AmmoCategory: Ammo in {0} ([i:{1}]) category
-			MiningSpeed: "{0}{1} mining speed"
+			MiningSpeed: "{0}{1} mining speed ({2} hits per second)"
 			ProjectileVelocity: "{0}{1} projectile velocity"
 			ProjectileVelocityMultiplier: x{0} projectile velocity multiplier
 			UsesAmmunition: Uses {0} ([i:{1}]) as ammo

@@ -13,7 +13,7 @@
 
 		Tooltips: {
 			AmmoCategory: Боеприпасы в категории {0} ([i:{1}])
-			MiningSpeed: "{0}{1} скорость добычи"
+			MiningSpeed: "{0}{1} скорость добычи ({2} удара в секунду)"
 			ProjectileVelocity: "{0}{1} скорость снаряда"
 			ProjectileVelocityMultiplier: множитель скорости снаряда x{0}
 			UsesAmmunition: Использует {0} ([i:{1}]) в качестве боеприпасов

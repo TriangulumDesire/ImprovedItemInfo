@@ -13,7 +13,7 @@
 
 		Tooltips: {
 			AmmoCategory: 类别{0}([i:{1}])弹药
-			MiningSpeed: "{0}{1}采矿速度"
+			MiningSpeed: "{0}{1}采矿速度(每秒{2}次点击)"
 			ProjectileVelocity: "{0}{1}弹丸速度"
 			ProjectileVelocityMultiplier: x{0}弹丸速度倍增器
 			UsesAmmunition: 使用{0}([i:{1}])作为弹药

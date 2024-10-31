@@ -15,7 +15,7 @@ Supported languages:
 
 Language translations might not be 100% accurate. Please report any incorrect translations as an issue on the GitHub project (linked below).
 
-The mod is completely open source and is avaiable here: https://github.com/LucidSigma/ImprovedItemInfo
+The mod is completely open source and is avaiable here: https://github.com/TriangulumDesire/ImprovedItemInfo
 If you have anything you wish to contribute or want to fork it, you're more than welcome to.
 
 Stats affected:
@@ -70,6 +70,9 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.4.1:
+* Add hits per second to mining speed tooltip.
+
 v1.4:
 * Add support for German, Chinese (simplified), and Russian languages.
 * Optimise improved clicker tooltip.

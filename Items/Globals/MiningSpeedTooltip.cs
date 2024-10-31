@@ -41,10 +41,12 @@ namespace ImprovedItemInfo.Items.Globals
                     deltaString = $" ({(miningSpeedDelta > 0 ? "+" : "-")}{Math.Abs(miningSpeedDelta)})";
                 }
 
+                const float FrameTicksPerSecond = 60.0f;
+
                 TooltipLine miningSpeedTooltipLine = new(
                     Mod,
                     MiningSpeedTooltipName,
-                    Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.MiningSpeed", totalMiningSpeed, deltaString)
+                    Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.MiningSpeed", totalMiningSpeed, deltaString, Math.Round(FrameTicksPerSecond / (float)totalMiningSpeed, 2))
                 );
 
                 if (ImprovedItemInfo.IsMiningSpeedColoured && miningSpeedDelta != 0)
