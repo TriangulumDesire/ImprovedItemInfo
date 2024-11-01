@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ImprovedItemInfo.Items.Globals;
+using System.ComponentModel;
 using Terraria.ModLoader.Config;
 
 namespace ImprovedItemInfo.Configs
@@ -25,10 +26,10 @@ namespace ImprovedItemInfo.Configs
         [TooltipKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.SpeedDisplay.Tooltip")]
         public bool IsSpeedImproved;
 
-        [DefaultValue(true)]
+        [DefaultValue(MiningSpeedTooltip.FormatMode.BothMiningSpeedAndHitsPerSecond)]
         [LabelKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.MiningSpeedDisplay.Label")]
         [TooltipKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.MiningSpeedDisplay.Tooltip")]
-        public bool DisplayMiningSpeedTooltip;
+        public MiningSpeedTooltip.FormatMode MiningSpeedTooltipDisplay;
 
         [DefaultValue(true)]
         [LabelKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.KnockbackDisplay.Label")]
@@ -110,7 +111,7 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.IsCriticalChanceImproved = IsCriticalChanceImproved;
             ImprovedItemInfo.IsKnockbackImproved = IsKnockbackImproved;
             ImprovedItemInfo.IsSpeedImproved = IsSpeedImproved;
-            ImprovedItemInfo.DisplayMiningSpeedTooltip = DisplayMiningSpeedTooltip;
+            ImprovedItemInfo.MiningSpeedTooltipDisplay = MiningSpeedTooltipDisplay;
             ImprovedItemInfo.IsManaUseImproved = IsManaUseImproved;
             ImprovedItemInfo.DisplayProjectileVelocityTooltip = DisplayProjectileVelocityTooltip;
             ImprovedItemInfo.DisplayProjectileVelocityMultiplierTooltip = DisplayProjectileVelocityMultiplierTooltip;

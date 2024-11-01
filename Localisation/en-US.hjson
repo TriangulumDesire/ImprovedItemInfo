@@ -13,7 +13,9 @@ Mods: {
 
 		Tooltips: {
 			AmmoCategory: Ammo in {0} ([i:{1}]) category
-			MiningSpeed: "{0}{1} mining speed ({2} hits per second)"
+			HitsPerSecond: "{0}{1} hits per second"
+			MiningSpeed: "{0}{1} mining speed"
+			MiningSpeedAndHitsPerSecond: "{0}{1} mining speed | {2}{3} hits per second"
 			ProjectileVelocity: "{0}{1} projectile velocity"
 			ProjectileVelocityMultiplier: x{0} projectile velocity multiplier
 			UsesAmmunition: Uses {0} ([i:{1}]) as ammo
@@ -103,7 +105,7 @@ Mods: {
 
 				MiningSpeedDisplay: {
 					Label: Display Mining Speed Stats
-					Tooltip: Whether to display the mining speed tooltip for pickaxes, axes, and hammers
+					Tooltip: Display format of mining speed tooltip for pickaxes, axes, and hammers (options are: disable, mining speed only, hits per second only, and both mining speed and hits per second)
 				}
 
 				ProjectileVelocityDisplay: {
@@ -120,6 +122,14 @@ Mods: {
 					Label: Display Improved Speed Stats
 					Tooltip: Whether to improve the speed tooltip
 				}
+			}
+
+			FormatMode: {
+				Tooltip: ""
+				None.Label: None
+				MiningSpeedOnly.Label: Mining Speed Only
+				HitsPerSecondOnly.Label: Hits Per Second Only
+				BothMiningSpeedAndHitsPerSecond.Label: Both Mining Speed and Hits Per Second
 			}
 		}
 	}

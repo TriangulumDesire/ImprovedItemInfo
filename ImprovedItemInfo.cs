@@ -1,3 +1,4 @@
+using ImprovedItemInfo.Items.Globals;
 using Terraria.ModLoader;
 
 namespace ImprovedItemInfo
@@ -8,7 +9,7 @@ namespace ImprovedItemInfo
         public static bool IsDamageImproved { get; set; }
         public static bool IsCriticalChanceImproved { get; set; }
         public static bool IsSpeedImproved { get; set; }
-        public static bool DisplayMiningSpeedTooltip { get; set; }
+        public static MiningSpeedTooltip.FormatMode MiningSpeedTooltipDisplay { get; set; }
         public static bool IsKnockbackImproved { get; set; }
         public static bool IsManaUseImproved { get; set; }
         public static bool DisplayProjectileVelocityTooltip { get; set; }

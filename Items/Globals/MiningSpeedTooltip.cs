@@ -7,15 +7,23 @@ using Terraria.ModLoader;
 
 namespace ImprovedItemInfo.Items.Globals
 {
-    internal class MiningSpeedTooltip
+    public class MiningSpeedTooltip
         : GlobalItem
     {
+        public enum FormatMode
+        {
+            None,
+            MiningSpeedOnly,
+            HitsPerSecondOnly,
+            BothMiningSpeedAndHitsPerSecond,
+        }
+
         private const string SpeedTooltipName = "Speed";
         private const string MiningSpeedTooltipName = "MiningSpeed";
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (!ImprovedItemInfo.DisplayMiningSpeedTooltip || Main.netMode == NetmodeID.Server)
+            if (ImprovedItemInfo.MiningSpeedTooltipDisplay == FormatMode.None || Main.netMode == NetmodeID.Server)
             {
                 return;
             }
@@ -34,19 +42,30 @@ namespace ImprovedItemInfo.Items.Globals
                 int baseMiningSpeed = unmodifiedItem.useTime;
                 int miningSpeedDelta = totalMiningSpeed - baseMiningSpeed;
 
-                string deltaString = "";
+                string miningSpeedDeltaString = "";
 
                 if (miningSpeedDelta != 0)
                 {
-                    deltaString = $" ({(miningSpeedDelta > 0 ? "+" : "-")}{Math.Abs(miningSpeedDelta)})";
+                    miningSpeedDeltaString = $" ({(miningSpeedDelta > 0 ? "+" : "-")}{Math.Abs(miningSpeedDelta)})";
                 }
 
                 const float FrameTicksPerSecond = 60.0f;
 
+                float hitsPerSecond = (float)Math.Round(FrameTicksPerSecond / (float)totalMiningSpeed, 2);
+                float baseHitsPerSecond = (float)Math.Round(FrameTicksPerSecond / (float)baseMiningSpeed, 2);
+                float hitsPerSecondDelta = (float)Math.Round(hitsPerSecond - baseHitsPerSecond, 2);
+
+                string hitsPerSecondDeltaString = "";
+
+                if (hitsPerSecondDelta != 0.0f)
+                {
+                    hitsPerSecondDeltaString = $" ({(hitsPerSecondDelta > 0 ? "+" : "-")}{Math.Abs(hitsPerSecondDelta)})";
+                }
+
                 TooltipLine miningSpeedTooltipLine = new(
                     Mod,
                     MiningSpeedTooltipName,
-                    Language.GetTextValue("Mods.ImprovedItemInfo.Tooltips.MiningSpeed", totalMiningSpeed, deltaString, Math.Round(FrameTicksPerSecond / (float)totalMiningSpeed, 2))
+                    GetFormattedTooltipText(totalMiningSpeed, miningSpeedDeltaString, hitsPerSecond, hitsPerSecondDeltaString)
                 );
 
                 if (ImprovedItemInfo.IsMiningSpeedColoured && miningSpeedDelta != 0)
@@ -69,6 +88,39 @@ namespace ImprovedItemInfo.Items.Globals
             catch (Exception)
             {
 
+            }
+        }
+
+        private string GetFormattedTooltipText(int totalMiningSpeed, in string miningSpeedDeltaString, float hitsPerSecond, in string hitsPerSecondDeltaString)
+        {
+            switch (ImprovedItemInfo.MiningSpeedTooltipDisplay)
+            {
+                case FormatMode.MiningSpeedOnly:
+                    return Language.GetTextValue(
+                        "Mods.ImprovedItemInfo.Tooltips.MiningSpeed",
+                        totalMiningSpeed,
+                        miningSpeedDeltaString
+                    );
+
+                case FormatMode.HitsPerSecondOnly:
+                    return Language.GetTextValue(
+                        "Mods.ImprovedItemInfo.Tooltips.HitsPerSecond",
+                        hitsPerSecond,
+                        hitsPerSecondDeltaString
+                    );
+
+                case FormatMode.BothMiningSpeedAndHitsPerSecond:
+                    return Language.GetTextValue(
+                        "Mods.ImprovedItemInfo.Tooltips.MiningSpeedAndHitsPerSecond",
+                        totalMiningSpeed,
+                        miningSpeedDeltaString,
+                        hitsPerSecond,
+                        hitsPerSecondDeltaString
+                    );
+
+                case FormatMode.None:
+                default:
+                    return "";
             }
         }
     }

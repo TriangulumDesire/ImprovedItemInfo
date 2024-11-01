@@ -22,7 +22,7 @@ Stats affected:
 * Damage.
 * Critical strike chance.
 * Use time (speed).
-* Mining speed.
+* Mining speed/hits per second.
 * Knockback.
 * Mana usage.
 * Ammo type/category.
@@ -70,6 +70,9 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.4.2:
+* Add formatting options to mining speed/hits per second tooltip.
+
 v1.4.1:
 * Add hits per second to mining speed tooltip.
 

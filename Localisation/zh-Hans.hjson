@@ -1,4 +1,4 @@
-﻿Mods: {
+Mods: {
 	ImprovedItemInfo: {
 		AmmoCategory: {
 			Arrow: 箭
@@ -13,7 +13,9 @@
 
 		Tooltips: {
 			AmmoCategory: 类别{0}([i:{1}])弹药
-			MiningSpeed: "{0}{1}采矿速度(每秒{2}次点击)"
+			HitsPerSecond: 每秒{0}{1}次点击
+			MiningSpeed: "{0}{1}采矿速度"
+			MiningSpeedAndHitsPerSecond: "{0}{1}采矿速度|每秒{2}{3}次点击"
 			ProjectileVelocity: "{0}{1}弹丸速度"
 			ProjectileVelocityMultiplier: x{0}弹丸速度倍增器
 			UsesAmmunition: 使用{0}([i:{1}])作为弹药
@@ -103,7 +105,7 @@
 
 				MiningSpeedDisplay: {
 					Label: 显示挖矿速度统计数据
-					Tooltip: 是否显示镐、斧头和锤子的采矿速度工具提示
+					Tooltip: 镐、斧头和锤子的采矿速度工具提示的显示格式（选项有：禁用、仅采矿速度、仅每秒命中数、以及采矿速度和每秒命中数）
 				}
 
 				ProjectileVelocityDisplay: {
@@ -120,6 +122,14 @@
 					Label: 显示改进的速度统计数据
 					Tooltip: 是否提高工具提示速度
 				}
+			}
+
+			FormatMode: {
+				Tooltip: ""
+				None.Label: 没有任何
+				MiningSpeedOnly.Label: 仅挖矿速度
+				HitsPerSecondOnly.Label: 仅每秒点击次数
+				BothMiningSpeedAndHitsPerSecond.Label: 挖矿速度和每秒点击量
 			}
 		}
 	}

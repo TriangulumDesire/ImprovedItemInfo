@@ -13,7 +13,9 @@ Mods: {
 
 		Tooltips: {
 			AmmoCategory: Munition in der {0} ([i:{1}]) Kategorie
-			MiningSpeed: "{0}{1} Mining-Geschwindigkeit ({2} Treffer pro Sekunde)"
+			HitsPerSecond: "{0}{1} Treffer pro Sekunde"
+			MiningSpeed: "{0}{1} Mining-Geschwindigkeit"
+			MiningSpeedAndHitsPerSecond: "{0}{1} Mining-Geschwindigkeit | {2}{3} Treffer pro Sekunde"
 			ProjectileVelocity: "{0}{1} Projektilgeschwindigkeit"
 			ProjectileVelocityMultiplier: x{0} Projektilgeschwindigkeitsmultiplikator
 			UsesAmmunition: Verwendet {0} ([i:{1}]) als Munition
@@ -103,7 +105,7 @@ Mods: {
 
 				MiningSpeedDisplay: {
 					Label: Statistiken zur Mining-Geschwindigkeit anzeigen
-					Tooltip: Ob der Tooltip zur Abbaugeschwindigkeit für Spitzhacken, Äxte und Hämmer angezeigt werden soll
+					Tooltip: Anzeigeformat des Tooltips zur Abbaugeschwindigkeit für Spitzhacken, Äxte und Hämmer (Optionen sind: Deaktivieren, nur Abbaugeschwindigkeit, nur Treffer pro Sekunde und sowohl Abbaugeschwindigkeit als auch Treffer pro Sekunde)
 				}
 
 				ProjectileVelocityDisplay: {
@@ -120,6 +122,14 @@ Mods: {
 					Label: Verbesserte Geschwindigkeitsstatistiken anzeigen
 					Tooltip: Ob der Geschwindigkeits-Tooltip verbessert werden soll
 				}
+			}
+
+			FormatMode: {
+				Tooltip: ""
+				None.Label: Keiner
+				MiningSpeedOnly.Label: Nur Mining-Geschwindigkeit
+				HitsPerSecondOnly.Label: Nur Treffer pro Sekunde
+				BothMiningSpeedAndHitsPerSecond.Label: Sowohl Mining-Geschwindigkeit als auch Treffer pro Sekunde
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-﻿Mods: {
+Mods: {
 	ImprovedItemInfo: {
 		AmmoCategory: {
 			Arrow: Стрела́
@@ -13,7 +13,9 @@
 
 		Tooltips: {
 			AmmoCategory: Боеприпасы в категории {0} ([i:{1}])
-			MiningSpeed: "{0}{1} скорость добычи ({2} удара в секунду)"
+			HitsPerSecond: "{0}{1} удара в секунду"
+			MiningSpeed: "{0}{1} скорость добычи"
+			MiningSpeedAndHitsPerSecond: "{0}{1} скорость добычи | {2}{3} удара в секунду"
 			ProjectileVelocity: "{0}{1} скорость снаряда"
 			ProjectileVelocityMultiplier: множитель скорости снаряда x{0}
 			UsesAmmunition: Использует {0} ([i:{1}]) в качестве боеприпасов
@@ -103,7 +105,7 @@
 
 				MiningSpeedDisplay: {
 					Label: Отображение статистики скорости майнинга
-					Tooltip: Отображать ли подсказку о скорости добычи для кирок, топоров и молотков
+					Tooltip: Формат отображения всплывающей подсказки о скорости добычи для кирок, топоров и молотков (варианты: отключить, только скорость добычи, только количество ударов в секунду, а также скорость добычи и количество ударов в секунду)
 				}
 
 				ProjectileVelocityDisplay: {
@@ -120,6 +122,14 @@
 					Label: Отображение улучшенной статистики скорости
 					Tooltip: Улучшить ли всплывающую подсказку о скорости
 				}
+			}
+
+			FormatMode: {
+				Tooltip: ""
+				None.Label: Никто
+				MiningSpeedOnly.Label: Только скорость майнинга
+				HitsPerSecondOnly.Label: Только попаданий в секунду
+				BothMiningSpeedAndHitsPerSecond.Label: Скорость майнинга и количество попаданий в секунду
 			}
 		}
 	}
