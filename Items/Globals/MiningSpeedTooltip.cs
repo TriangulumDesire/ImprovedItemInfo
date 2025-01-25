@@ -91,37 +91,29 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private string GetFormattedTooltipText(int totalMiningSpeed, in string miningSpeedDeltaString, float hitsPerSecond, in string hitsPerSecondDeltaString)
+        private static string GetFormattedTooltipText(int totalMiningSpeed, in string miningSpeedDeltaString, float hitsPerSecond, in string hitsPerSecondDeltaString)
         {
-            switch (ImprovedItemInfo.MiningSpeedTooltipDisplay)
+            return ImprovedItemInfo.MiningSpeedTooltipDisplay switch
             {
-                case FormatMode.MiningSpeedOnly:
-                    return Language.GetTextValue(
-                        "Mods.ImprovedItemInfo.Tooltips.MiningSpeed",
-                        totalMiningSpeed,
-                        miningSpeedDeltaString
-                    );
-
-                case FormatMode.HitsPerSecondOnly:
-                    return Language.GetTextValue(
-                        "Mods.ImprovedItemInfo.Tooltips.HitsPerSecond",
-                        hitsPerSecond,
-                        hitsPerSecondDeltaString
-                    );
-
-                case FormatMode.BothMiningSpeedAndHitsPerSecond:
-                    return Language.GetTextValue(
-                        "Mods.ImprovedItemInfo.Tooltips.MiningSpeedAndHitsPerSecond",
-                        totalMiningSpeed,
-                        miningSpeedDeltaString,
-                        hitsPerSecond,
-                        hitsPerSecondDeltaString
-                    );
-
-                case FormatMode.None:
-                default:
-                    return "";
-            }
+                FormatMode.MiningSpeedOnly => Language.GetTextValue(
+                    "Mods.ImprovedItemInfo.Tooltips.MiningSpeed",
+                    totalMiningSpeed,
+                    miningSpeedDeltaString
+                ),
+                FormatMode.HitsPerSecondOnly => Language.GetTextValue(
+                    "Mods.ImprovedItemInfo.Tooltips.HitsPerSecond",
+                    hitsPerSecond,
+                    hitsPerSecondDeltaString
+                ),
+                FormatMode.BothMiningSpeedAndHitsPerSecond => Language.GetTextValue(
+                    "Mods.ImprovedItemInfo.Tooltips.MiningSpeedAndHitsPerSecond",
+                    totalMiningSpeed,
+                    miningSpeedDeltaString,
+                    hitsPerSecond,
+                    hitsPerSecondDeltaString
+                ),
+                _ => "",
+            };
         }
     }
 }

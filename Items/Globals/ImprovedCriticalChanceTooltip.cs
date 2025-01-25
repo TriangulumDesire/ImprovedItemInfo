@@ -124,6 +124,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("chance"),
                 "de-DE" => tooltipData[^1].Equals("Trefferchance"),
+                "fr-FR" => tooltipData[^1].Equals("critique"),
                 "ru-RU" => tooltipData[^1].Equals("удара"),
                 "zh-Hans" => tooltipData[^1].EndsWith("暴击率"),
                 _ => false,
@@ -134,7 +135,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" or "de-DE" or "ru-RU" => int.Parse(tooltipData[0][0..^1]),
+                "en-US" or "de-DE" or "fr-FR" or "ru-RU" => int.Parse(tooltipData[0][0..^1]),
                 "zh-Hans" => int.Parse(tooltipData[0].Split('%')[0]),
                 _ => 0,
             };
@@ -144,7 +145,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US" or "de-DE" or "ru-RU":
+                case "en-US" or "de-DE" or "fr-FR" or "ru-RU":
                     tooltip.Text = $"{tooltipData[0]} ({(criticalChanceDelta > 0 ? "+" : "-")}{Math.Abs(criticalChanceDelta)}%)";
 
                     foreach (string tooltipElement in tooltipData.Skip(1))
@@ -169,6 +170,9 @@ namespace ImprovedItemInfo.Items.Globals
                         tooltip.Text += tooltipElement;
                     }
 
+                    break;
+
+                default:
                     break;
             }
         }

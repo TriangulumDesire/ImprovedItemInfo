@@ -87,6 +87,7 @@ namespace ImprovedItemInfo.Items.Globals
             {
                 "en-US" => tooltipData[^1].Equals("speed"),
                 "de-DE" => tooltipData[^1].Equals("Tempo"),
+                "fr-FR" => tooltipData[0].Equals("Vitesse"),
                 "ru-RU" => tooltipData[^1].Equals("скорость"),
                 "zh-Hans" => tooltipData[^1].EndsWith("速度"),
                 _ => false,
@@ -112,6 +113,28 @@ namespace ImprovedItemInfo.Items.Globals
 
                     break;
 
+                case "fr-FR":
+                    tooltip.Text = $"{totalSpeed}";
+
+                    if (speedDelta != 0)
+                    {
+                        tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
+                    }
+
+                    for (int i = 0; i < tooltipData.Length; ++i)
+                    {
+                        string tooltipDataToUse = tooltipData[i];
+
+                        if (i == 0)
+                        {
+                            tooltipDataToUse = tooltipDataToUse.ToLowerInvariant();
+                        }
+
+                        tooltip.Text += ((i == 1) ? " (" : " ") + tooltipDataToUse + ((i == tooltipData.Length - 1) ? ")" : "");
+                    }
+
+                    break;
+
                 case "zh-Hans":
                     tooltip.Text = $"{totalSpeed}";
 
@@ -129,6 +152,9 @@ namespace ImprovedItemInfo.Items.Globals
                         tooltip.Text += tooltipElement;
                     }
 
+                    break;
+
+                default:
                     break;
             }
         }

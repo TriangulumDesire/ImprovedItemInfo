@@ -1,0 +1,136 @@
+Mods: {
+	ImprovedItemInfo: {
+		AmmoCategory: {
+			Arrow: Flèche
+			Bullet: Balle
+			Coin: Pièce
+			Dart: Fléchette
+			Flare: Fusée
+			Gel: Gel
+			Rocket: Roquette
+			Solution: Solution
+		}
+
+		Tooltips: {
+			AmmoCategory: Munition de type {0} ([i:{1}])
+			HitsPerSecond: "{0}{1} Coups par seconde"
+			MiningSpeed: "{0}{1} de vitesse de minage"
+			MiningSpeedAndHitsPerSecond: "{0}{1} de vitesse de minage | {2}{3} Coups par seconde"
+			ProjectileVelocity: "{0}{1} de velocité du projectile"
+			ProjectileVelocityMultiplier: x{0} au multiplicateur de velocité
+			UsesAmmunition: Utilisation de {0} ([i:{1}]) comme munition
+			UsesDartAmmunition: Utilisation de {0} ([i:1310]) comme munition
+			UsesSeedAndDartAmmunition: Utilisation de {0} ([i:{1}])/Fléchette ([i:1310]) comme munition
+		}
+
+		Configs: {
+			DisplayConfig: {
+				DisplayName: Configuration d'Affichage
+
+				Header: {
+					ColourOptions: Options de Couleur
+					GeneralOptions: Options Général
+					CrossModSupportOptions: Options de support Cross-mod
+				}
+
+				AmmoTooltipsDisplay: {
+					Label: Afficher les Informations du Type de Munition Utilisée
+					Tooltip: Permet d'améliorer l'info-bulle pour identifier le type de Munition Utilisée
+				}
+
+				ClickEffectCountDisplay: {
+					Label: Affichage Avancé pour les Statistiques d'Effet du Nombre de Clic
+					Tooltip: Permet d'améliorer l'info-bulle pour l'Effet du Nombre de Clic (Clicker Class)
+				}
+
+				ColouredClickEffectCount: {
+					Label: Info-bulle Colorée pour le Nombre d'Effets de Clic
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour le Nombre d'Effets de Clic (Clicker Class)
+				}
+
+				ColouredCriticalChance: {
+					Label: Info-bulle Colorée pour les Chances de Critique
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour les chances de coup critique
+				}
+
+				ColouredDamage: {
+					Label: Info-bulle Colorée pour les Dégâts
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour les Dégâts
+				}
+
+				ColouredKnockback: {
+					Label: Info-bulle Colorée pour le Recul
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour le Recul
+				}
+
+				ColouredManaUse: {
+					Label: Info-bulle Colorée pour l'Utilisation du Mana
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour l'Utilisation du Mana
+				}
+
+				ColouredMiningSpeed: {
+					Label: Info-bulle Colorée pour la Vitesse de Minage
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour la Vitesse de Minage
+				}
+
+				ColouredProjectileVelocity: {
+					Label: Info-bulle colorée pour la Vélocité du Projectile
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour la Vélocité du Projectile
+				}
+
+				ColouredSpeed: {
+					Label: Info-bulle Colorée pour la Vitesse
+					Tooltip: Permet d'utiliser les couleurs rouge/verte dans l'info-bulle pour la Vitesse
+				}
+
+				CriticalChanceDisplay: {
+					Label: Affichage Avancé pour les Statistiques de Chances de Coups Critique
+					Tooltip: Permet d'améliorer l'info-bulle pour les Chances de Coup Critique
+				}
+
+				DamageDisplay: {
+					Label: Affichage Avancé pour les Statistiques de Dégâts
+					Tooltip: Permet d'améliorer l'info-bulle pour les Dégâts
+				}
+
+				KnockbackDisplay: {
+					Label: Affichage Avancé pour les Statistiques de Recul
+					Tooltip: Permet d'améliorer l'info-bulle pour le Recul
+				}
+
+				ManaUseDisplay: {
+					Label: Affichage avancé pour les statistiques d'Utilisation du Mana
+					Tooltip: Permet d'améliorer l'info-bulle pour l'Utilisation du Mana
+				}
+
+				MiningSpeedDisplay: {
+					Label: Affichage de la Statistiques de Vitesse de Minage
+					Tooltip: Permet de choisir l'affichage du format de l'info-bulle pour la Vitesse de Minage concernant les Pioches, Haches et Marteaux (Les options sont: Désactivé / Vitesse de Minage seulement / Coups par Seconde seulement / les Deux en même temps)
+				}
+
+				ProjectileVelocityDisplay: {
+					Label: Affichage de la Statistiques de Vélocité du Projectile
+					Tooltip: Permet d'afficher dans l'info-bulle la Vélocité du Projectile
+				}
+
+				ProjectileVelocityMultiplierDisplay: {
+					Label: Affichage de la Statistiques du Multiplicateur à la Vélocité du Projectile
+					Tooltip: Permet d'afficher dans l'info-bulle le Multiplicateur de la Vélocité du Projectile
+				}
+
+				SpeedDisplay: {
+					Label: Affichage Avancé pour les Statistiques de Vitesse
+					Tooltip: Permet d'améliorer l'info-bulle pour la Vitesse
+				}
+			}
+
+			FormatMode: {
+				Tooltip: Mode Format
+				None.Label: Désactivé
+				MiningSpeedOnly.Label: Vitesse de Minage seulement
+				HitsPerSecondOnly.Label: Coups par Seconde seulement
+				BothMiningSpeedAndHitsPerSecond.Label: Vitesse de Minage ET Coups par Seconde
+			}
+		}
+	}
+}

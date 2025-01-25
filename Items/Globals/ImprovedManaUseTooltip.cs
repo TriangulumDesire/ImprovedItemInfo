@@ -65,7 +65,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" => tooltipData[^1].Equals("mana"),
+                "en-US" or "fr-FR" => tooltipData[^1].Equals("mana"),
                 "de-DE" => tooltipData[^1].Equals("Mana"),
                 "ru-RU" => tooltipData[^1].Equals("маны"),
                 "zh-Hans" => tooltipData[^1].Contains("魔力"),
@@ -77,7 +77,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             return Language.ActiveCulture.Name switch
             {
-                "en-US" or "de-DE" or "ru-RU" => int.Parse(tooltipData[1]),
+                "en-US" or "de-DE" or "fr-FR" or "ru-RU" => int.Parse(tooltipData[1]),
                 "zh-Hans" => int.Parse(tooltipData[0]["使用".Length..^"魔力".Length]),
                 _ => 0,
             };
@@ -87,7 +87,7 @@ namespace ImprovedItemInfo.Items.Globals
         {
             switch (Language.ActiveCulture.Name)
             {
-                case "en-US" or "de-DE" or "ru-RU":
+                case "en-US" or "de-DE" or "fr-FR" or "ru-RU":
                     tooltip.Text = $"{tooltipData[0]} {tooltipData[1]} ({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
 
                     foreach (string tooltipElement in tooltipData.Skip(2))
@@ -117,6 +117,9 @@ namespace ImprovedItemInfo.Items.Globals
                         tooltip.Text += "\n" + tooltipLine;
                     }
 
+                    break;
+
+                default:
                     break;
             }
         }

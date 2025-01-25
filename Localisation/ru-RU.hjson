@@ -125,7 +125,7 @@ Mods: {
 			}
 
 			FormatMode: {
-				Tooltip: ""
+				Tooltip: Режим форма́т
 				None.Label: Никто
 				MiningSpeedOnly.Label: Только скорость майнинга
 				HitsPerSecondOnly.Label: Только попаданий в секунду

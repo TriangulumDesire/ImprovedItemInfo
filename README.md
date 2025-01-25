@@ -4,17 +4,22 @@ It essentially shows how the weapon is affected by modifiers and accessories, as
   
 It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemStats) (by Xahlicem) rewritten completely from scratch.  
   
-Has cross-mod support with Clicker Class and Calamity.  
-  
+This mod should work with all modded items, and it has cross-mod support with Clicker Class and Calamity. Thorium bard and healer support is planned.  
+
+If you have anything you wish to contribute or want to fork this mod, you're more than welcome to.  
+
+## Localisation.
 Supported languages:  
 * English  
+* Chinese (Simplified)  
+* French  
 * German  
 * Russian  
-* Chinese (Simplified)  
-  
+
 Language translations might not be 100% accurate. Please report any incorrect translations as an issue.  
-  
-If you have anything you wish to contribute or want to fork this mod, you're more than welcome to.  
+
+Translation credits:
+* French: @Xenophact
 
 ## To do.
 * Localisation for the remaining languages.  
@@ -46,6 +51,16 @@ If you have anything you wish to contribute or want to fork this mod, you're mor
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.4.3:  
+  * Add support for French language.  
+  * Fix minor errors with translation entries.  
+
+* v1.4.2:  
+  * Add formatting options to mining speed/hits per second tooltip.  
+
+* v1.4.1:  
+  * Add hits per second to mining speed tooltip.  
+
 * v1.4:  
   * Add support for German, Chinese (simplified), and Russian languages.
   * Optimise improved clicker tooltip.

@@ -125,7 +125,7 @@ Mods: {
 			}
 
 			FormatMode: {
-				Tooltip: ""
+				Tooltip: 格式模式
 				None.Label: 没有任何
 				MiningSpeedOnly.Label: 仅挖矿速度
 				HitsPerSecondOnly.Label: 仅每秒点击次数

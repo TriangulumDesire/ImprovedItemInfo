@@ -3,15 +3,19 @@ It essentially shows how the weapon is affected by modifiers and accessories, as
 
 It is a spiritual successor to ItemStats+ (by Xahlicem) rewritten completely from scratch.
 
-Has cross-mod support with Clicker Class and Calamity.
+This mod should work with all modded items, and it has cross-mod support with Clicker Class and Calamity. Thorium bard and healer support is planned.
 
 All tooltips that this mod affects are configurable.
 
 Supported languages:
 * English
+* Chinese (Simplified)
+* French
 * German
 * Russian
-* Chinese (Simplified)
+
+Translation credits:
+* French: Xenophact
 
 Language translations might not be 100% accurate. Please report any incorrect translations as an issue on the GitHub project (linked below).
 
@@ -70,6 +74,10 @@ Legendary Zenith
 +15% knockback
 
 Changelog:
+v1.4.3:
+* Add support for French language.
+* Fix minor errors with translation entries.
+
 v1.4.2:
 * Add formatting options to mining speed/hits per second tooltip.
 
