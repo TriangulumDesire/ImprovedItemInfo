@@ -123,30 +123,45 @@ namespace ImprovedItemInfo.Items.Globals
 
         private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int currentClickAmount, in int clickAmountDelta)
         {
+            string deltaString = "";
+
+            if (ImprovedItemInfo.IncludeValueDeltas)
+            {
+                if (Language.ActiveCulture.Name != "zh-Hans")
+                {
+                    deltaString += " ";
+                }
+
+                deltaString += "(";
+                deltaString += clickAmountDelta > 0 ? "-" : "+";
+                deltaString += Math.Abs(clickAmountDelta);
+                deltaString += ")";
+            }
+
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US":
-                    tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) clicks: {tooltipData.Last()}";
+                    tooltip.Text = $"{currentClickAmount}{deltaString} clicks: {tooltipData.Last()}";
 
                     break;
 
                 case "de-DE":
-                    tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) Klicks: {tooltipData.Last()}";
+                    tooltip.Text = $"{currentClickAmount}{deltaString} Klicks: {tooltipData.Last()}";
 
                     break;
 
                 case "fr-FR":
-                    tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) clics: {tooltipData.Last()}";
+                    tooltip.Text = $"{currentClickAmount}{deltaString} clics: {tooltipData.Last()}";
 
                     break;
 
                 case "ru-RU":
-                    tooltip.Text = $"{currentClickAmount} ({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)}) кликов: {tooltipData.Last()}";
+                    tooltip.Text = $"{currentClickAmount}{deltaString} кликов: {tooltipData.Last()}";
 
                     break;
 
                 case "zh-Hans":
-                    tooltip.Text = $"{currentClickAmount}({(clickAmountDelta > 0 ? "-" : "+")}{Math.Abs(clickAmountDelta)})次点击:{tooltipData.Last()}";
+                    tooltip.Text = $"{currentClickAmount}{deltaString}次点击:{tooltipData.Last()}";
 
                     break;
 

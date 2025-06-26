@@ -85,10 +85,25 @@ namespace ImprovedItemInfo.Items.Globals
 
         private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in string[] tooltipLines, in int manaUseDelta)
         {
+            string deltaString = "";
+
+            if (ImprovedItemInfo.IncludeValueDeltas)
+            {
+                if (Language.ActiveCulture.Name != "zh-Hans")
+                {
+                    deltaString += " ";
+                }
+
+                deltaString += "(";
+                deltaString += manaUseDelta > 0 ? "+" : "-";
+                deltaString += Math.Abs(manaUseDelta);
+                deltaString += ")";
+            }
+
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US" or "de-DE" or "fr-FR" or "ru-RU":
-                    tooltip.Text = $"{tooltipData[0]} {tooltipData[1]} ({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
+                    tooltip.Text = $"{tooltipData[0]} {tooltipData[1]}{deltaString}";
 
                     foreach (string tooltipElement in tooltipData.Skip(2))
                     {
@@ -104,7 +119,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                 case "zh-Hans":
                     tooltip.Text = tooltipData[0][..^"魔力".Length];
-                    tooltip.Text += $"({(manaUseDelta > 0 ? "+" : "-")}{Math.Abs(manaUseDelta)})";
+                    tooltip.Text += deltaString;
                     tooltip.Text += "魔力";
 
                     foreach (string tooltipElement in tooltipData.Skip(2))

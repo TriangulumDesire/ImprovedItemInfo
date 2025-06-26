@@ -33,7 +33,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                     string deltaString = "";
 
-                    if (projectileVelocityDelta != 0.0f)
+                    if (projectileVelocityDelta != 0.0f && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         deltaString = $" ({(projectileVelocityDelta > 0.0f ? "+" : "-")}{Math.Abs(projectileVelocityDelta)})";
                     }

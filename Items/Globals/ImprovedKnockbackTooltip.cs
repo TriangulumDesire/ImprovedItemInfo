@@ -78,15 +78,21 @@ namespace ImprovedItemInfo.Items.Globals
                 case "en-US" or "de-DE" or "ru-RU":
                     tooltip.Text = Math.Round(totalKnockback, 2).ToString();
 
-                    if (Math.Abs(knockbackDelta) > float.Epsilon)
+                    if (Math.Abs(knockbackDelta) > float.Epsilon && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         tooltip.Text += $" ({(knockbackDelta > 0.0f ? "+" : "-")}{Math.Abs(Math.Round(knockbackDelta, 2))})";
                     }
 
-                    for (int i = 0; i < tooltipData.Length; ++i)
+                    if (ImprovedItemInfo.IncludeValueWords)
                     {
-                        tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                        for (int i = 0; i < tooltipData.Length - 1; ++i)
+                        {
+                            tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                        }
                     }
+
+                    tooltip.Text += " ";
+                    tooltip.Text += tooltipData.Last();
 
                     foreach (string tooltipLine in tooltipLines.Skip(1))
                     {
@@ -98,21 +104,20 @@ namespace ImprovedItemInfo.Items.Globals
                 case "fr-FR":
                     tooltip.Text = Math.Round(totalKnockback, 2).ToString();
 
-                    if (Math.Abs(knockbackDelta) > float.Epsilon)
+                    if (Math.Abs(knockbackDelta) > float.Epsilon && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         tooltip.Text += $" ({(knockbackDelta > 0.0f ? "+" : "-")}{Math.Abs(Math.Round(knockbackDelta, 2))})";
                     }
 
-                    for (int i = 0; i < tooltipData.Length; ++i)
+                    tooltip.Text += " ";
+                    tooltip.Text += tooltipData.First().ToLowerInvariant();
+
+                    if (ImprovedItemInfo.IncludeValueWords)
                     {
-                        string tooltipDataToUse = tooltipData[i];
-
-                        if (i == 0)
+                        for (int i = 1; i < tooltipData.Length; ++i)
                         {
-                            tooltipDataToUse = tooltipDataToUse.ToLowerInvariant();
+                            tooltip.Text += ((i == 1) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 1) ? ")" : "");
                         }
-
-                        tooltip.Text += ((i == 1) ? " (" : " ") + tooltipDataToUse + ((i == tooltipData.Length - 1) ? ")" : "");
                     }
 
                     foreach (string tooltipLine in tooltipLines.Skip(1))
@@ -125,14 +130,19 @@ namespace ImprovedItemInfo.Items.Globals
                 case "zh-Hans":
                     tooltip.Text = Math.Round(totalKnockback, 2).ToString();
 
-                    if (Math.Abs(knockbackDelta) > float.Epsilon)
+                    if (Math.Abs(knockbackDelta) > float.Epsilon && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         tooltip.Text += $" ({(knockbackDelta > 0.0f ? "+" : "-")}{Math.Abs(Math.Round(knockbackDelta, 2))})";
                     }
 
-                    tooltip.Text += "(";
-                    tooltip.Text += tooltipData[0][..^"击退力".Length];
-                    tooltip.Text += ")击退力";
+                    if (ImprovedItemInfo.IncludeValueWords)
+                    {
+                        tooltip.Text += "(";
+                        tooltip.Text += tooltipData[0][..^"击退力".Length];
+                        tooltip.Text += ")";
+                    }
+
+                    tooltip.Text += "击退力";
 
                     foreach (string tooltipElement in tooltipData.Skip(1))
                     {

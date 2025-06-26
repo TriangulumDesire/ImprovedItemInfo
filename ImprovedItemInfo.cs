@@ -15,6 +15,8 @@ namespace ImprovedItemInfo
         public static bool DisplayProjectileVelocityTooltip { get; set; }
         public static bool DisplayProjectileVelocityMultiplierTooltip { get; set; }
         public static bool DisplayAmmoTooltips { get; set; }
+        public static bool IncludeValueDeltas{ get; set; }
+        public static bool IncludeValueWords { get; set; }
 
         public static bool IsDamageColoured { get; set; }
         public static bool IsCriticalChanceColoured { get; set; }

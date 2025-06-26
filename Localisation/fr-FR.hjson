@@ -93,6 +93,16 @@ Mods: {
 					Tooltip: Permet d'améliorer l'info-bulle pour les Dégâts
 				}
 
+				IncludeValueDeltas: {
+					Label: Inclure les différences de valeurs numériques
+					Tooltip: S'il faut inclure les différences de valeurs numériques (entre parenthèses) dans les info-bulles
+				}
+
+				IncludeValueWords: {
+					Label: Inclure les mots de valeur de recul/vitesse
+					Tooltip: S'il faut inclure des mots de valeur (tels que « faible », « rapide », « moyen », etc.) dans les infobulles de recul/vitesse
+				}
+
 				KnockbackDisplay: {
 					Label: Affichage Avancé pour les Statistiques de Recul
 					Tooltip: Permet d'améliorer l'info-bulle pour le Recul

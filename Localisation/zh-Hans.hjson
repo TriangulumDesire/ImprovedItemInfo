@@ -93,6 +93,16 @@ Mods: {
 					Tooltip: 是否改进伤害提示
 				}
 
+				IncludeValueDeltas: {
+					Label: 包括数值差异
+					Tooltip: 是否在工具提示中包含数值差异（括号内）
+				}
+
+				IncludeValueWords: {
+					Label: 包含击退/速度值词
+					Tooltip: 是否在击退/速度工具提示中包含价值词（例如“弱”，“快”，“平均”等）
+				}
+
 				KnockbackDisplay: {
 					Label: 显示改进的击退统计数据
 					Tooltip: 是否改进击退提示

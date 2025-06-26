@@ -33,7 +33,7 @@ namespace ImprovedItemInfo.Items.Globals
                 {
                     string[] tooltipData = tooltip.Text.Split(' ');
 
-                    if (!IsSpeedTooltip(tooltipData))
+                    if (!IsSpeedTooltip(tooltipData, tooltip))
                     {
                         return;
                     }
@@ -81,8 +81,13 @@ namespace ImprovedItemInfo.Items.Globals
             }
         }
 
-        private static bool IsSpeedTooltip(in string[] tooltipData)
+        private static bool IsSpeedTooltip(in string[] tooltipData, in TooltipLine tooltip)
         {
+            if (tooltip.Name == "Speed")
+            {
+                return true;
+            }
+
             return Language.ActiveCulture.Name switch
             {
                 "en-US" => tooltipData[^1].Equals("speed"),
@@ -101,36 +106,41 @@ namespace ImprovedItemInfo.Items.Globals
                 case "en-US" or "de-DE" or "ru-RU":
                     tooltip.Text = $"{totalSpeed}";
 
-                    if (speedDelta != 0)
+                    if (speedDelta != 0 && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
                     }
 
-                    for (int i = 0; i < tooltipData.Length; ++i)
+                    if (ImprovedItemInfo.IncludeValueWords)
                     {
-                        tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                        for (int i = 0; i < tooltipData.Length - 1; ++i)
+                        {
+                            tooltip.Text += ((i == 0) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 2) ? ")" : "");
+                        }
                     }
+
+                    tooltip.Text += " ";
+                    tooltip.Text += tooltipData.Last();
 
                     break;
 
                 case "fr-FR":
                     tooltip.Text = $"{totalSpeed}";
 
-                    if (speedDelta != 0)
+                    if (speedDelta != 0 && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
                     }
 
-                    for (int i = 0; i < tooltipData.Length; ++i)
+                    tooltip.Text += " ";
+                    tooltip.Text += tooltipData.First().ToLowerInvariant();
+
+                    if (ImprovedItemInfo.IncludeValueWords)
                     {
-                        string tooltipDataToUse = tooltipData[i];
-
-                        if (i == 0)
+                        for (int i = 1; i < tooltipData.Length; ++i)
                         {
-                            tooltipDataToUse = tooltipDataToUse.ToLowerInvariant();
+                            tooltip.Text += ((i == 1) ? " (" : " ") + tooltipData[i] + ((i == tooltipData.Length - 1) ? ")" : "");
                         }
-
-                        tooltip.Text += ((i == 1) ? " (" : " ") + tooltipDataToUse + ((i == tooltipData.Length - 1) ? ")" : "");
                     }
 
                     break;
@@ -138,14 +148,19 @@ namespace ImprovedItemInfo.Items.Globals
                 case "zh-Hans":
                     tooltip.Text = $"{totalSpeed}";
 
-                    if (speedDelta != 0)
+                    if (speedDelta != 0 && ImprovedItemInfo.IncludeValueDeltas)
                     {
                         tooltip.Text += $" ({(speedDelta > 0 ? "+" : "-")}{Math.Abs(speedDelta)})";
                     }
 
-                    tooltip.Text += "(";
-                    tooltip.Text += tooltipData[0][..^"速度".Length];
-                    tooltip.Text += ")速度";
+                    if (ImprovedItemInfo.IncludeValueWords)
+                    {
+                        tooltip.Text += "(";
+                        tooltip.Text += tooltipData[0][..^"速度".Length];
+                        tooltip.Text += ")";
+                    }
+
+                    tooltip.Text += "速度";
 
                     foreach (string tooltipElement in tooltipData.Skip(1))
                     {

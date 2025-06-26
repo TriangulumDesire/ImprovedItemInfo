@@ -93,6 +93,16 @@ Mods: {
 					Tooltip: Ob der Schadens-Tooltip verbessert werden soll
 				}
 
+				IncludeValueDeltas: {
+					Label: Numerische Wertunterschiede berücksichtigen
+					Tooltip: Ob numerische Wertunterschiede (in Klammern) in Tooltips aufgenommen werden sollen
+				}
+
+				IncludeValueWords: {
+					Label: Wörter mit Rückstoß-/Geschwindigkeitswert einschließen
+					Tooltip: Ob Wertwörter (wie „schwach“, „schnell“, „durchschnittlich“ usw.) in Rückstoß-/Geschwindigkeits-Tooltips enthalten sein sollen
+				}
+
 				KnockbackDisplay: {
 					Label: Zeigt verbesserte Rückstoßstatistiken an
 					Tooltip: Ob der Rückstoß-Tooltip verbessert werden soll

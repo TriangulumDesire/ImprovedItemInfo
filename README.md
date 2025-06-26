@@ -51,6 +51,9 @@ Translation credits:
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.5.0:  
+  * Add configuration options for displaying value words and deltas.  
+
 * v1.4.3:  
   * Add support for French language.  
   * Fix minor errors with translation entries.  

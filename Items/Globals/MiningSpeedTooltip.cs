@@ -44,7 +44,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                 string miningSpeedDeltaString = "";
 
-                if (miningSpeedDelta != 0)
+                if (miningSpeedDelta != 0 && ImprovedItemInfo.IncludeValueDeltas)
                 {
                     miningSpeedDeltaString = $" ({(miningSpeedDelta > 0 ? "+" : "-")}{Math.Abs(miningSpeedDelta)})";
                 }
@@ -57,7 +57,7 @@ namespace ImprovedItemInfo.Items.Globals
 
                 string hitsPerSecondDeltaString = "";
 
-                if (hitsPerSecondDelta != 0.0f)
+                if (hitsPerSecondDelta != 0.0f && ImprovedItemInfo.IncludeValueDeltas)
                 {
                     hitsPerSecondDeltaString = $" ({(hitsPerSecondDelta > 0 ? "+" : "-")}{Math.Abs(hitsPerSecondDelta)})";
                 }

@@ -143,10 +143,20 @@ namespace ImprovedItemInfo.Items.Globals
 
         private static void ReconstructTooltip(in TooltipLine tooltip, in string[] tooltipData, in int criticalChanceDelta)
         {
+            string deltaString = "";
+
+            if (ImprovedItemInfo.IncludeValueDeltas)
+            {
+                deltaString += " (";
+                deltaString += criticalChanceDelta > 0 ? "+" : "-";
+                deltaString += Math.Abs(criticalChanceDelta);
+                deltaString += "%)";
+            }
+
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US" or "de-DE" or "fr-FR" or "ru-RU":
-                    tooltip.Text = $"{tooltipData[0]} ({(criticalChanceDelta > 0 ? "+" : "-")}{Math.Abs(criticalChanceDelta)}%)";
+                    tooltip.Text = $"{tooltipData[0]}{deltaString}";
 
                     foreach (string tooltipElement in tooltipData.Skip(1))
                     {
@@ -158,7 +168,7 @@ namespace ImprovedItemInfo.Items.Globals
                 case "zh-Hans":
                     string[] splitTooltipData = tooltipData[0].Split('%');
 
-                    tooltip.Text = $"{splitTooltipData[0]}% ({(criticalChanceDelta > 0 ? "+" : "-")}{Math.Abs(criticalChanceDelta)}%)";
+                    tooltip.Text = $"{splitTooltipData[0]}%{deltaString}";
 
                     foreach (string splitTooltipDataElement in splitTooltipData.Skip(1))
                     {

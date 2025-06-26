@@ -87,7 +87,15 @@ namespace ImprovedItemInfo.Items.Globals
             switch (Language.ActiveCulture.Name)
             {
                 case "en-US" or "de-DE" or "fr-FR" or "ru-RU" or "zh-Hans":
-                    tooltip.Text = $"{tooltipData[0]} ({(damageDelta > 0 ? "+" : "-")}{Math.Abs(damageDelta)})";
+                    tooltip.Text = tooltipData[0];
+
+                    if (ImprovedItemInfo.IncludeValueDeltas)
+                    {
+                        tooltip.Text += " (";
+                        tooltip.Text += damageDelta > 0 ? "+" : "-";
+                        tooltip.Text += Math.Abs(damageDelta);
+                        tooltip.Text += ")";
+                    }
 
                     foreach (string tooltipElement in tooltipData.Skip(1))
                     {

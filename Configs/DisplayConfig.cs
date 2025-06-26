@@ -56,6 +56,16 @@ namespace ImprovedItemInfo.Configs
         [TooltipKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.AmmoTooltipsDisplay.Tooltip")]
         public bool DisplayAmmoTooltips;
 
+        [DefaultValue(true)]
+        [LabelKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.IncludeValueDeltas.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.IncludeValueDeltas.Tooltip")]
+        public bool IncludeValueDeltas;
+
+        [DefaultValue(true)]
+        [LabelKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.IncludeValueWords.Label")]
+        [TooltipKey("$Mods.ImprovedItemInfo.Configs.DisplayConfig.IncludeValueWords.Tooltip")]
+        public bool IncludeValueWords;
+
         [Header("$Mods.ImprovedItemInfo.Configs.DisplayConfig.Header.ColourOptions")]
 
         [DefaultValue(false)]
@@ -116,6 +126,8 @@ namespace ImprovedItemInfo.Configs
             ImprovedItemInfo.DisplayProjectileVelocityTooltip = DisplayProjectileVelocityTooltip;
             ImprovedItemInfo.DisplayProjectileVelocityMultiplierTooltip = DisplayProjectileVelocityMultiplierTooltip;
             ImprovedItemInfo.DisplayAmmoTooltips = DisplayAmmoTooltips;
+            ImprovedItemInfo.IncludeValueDeltas = IncludeValueDeltas;
+            ImprovedItemInfo.IncludeValueWords = IncludeValueWords;
 
             ImprovedItemInfo.IsDamageColoured = IsDamageColoured;
             ImprovedItemInfo.IsCriticalChanceColoured = IsCriticalChanceColoured;

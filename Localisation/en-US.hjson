@@ -93,6 +93,16 @@ Mods: {
 					Tooltip: Whether to improve the damage tooltip
 				}
 
+				IncludeValueDeltas: {
+					Label: Include Numerical Value Differences
+					Tooltip: Whether to include numerical value differences (within parentheses) in tooltips
+				}
+
+				IncludeValueWords: {
+					Label: Include Knockback/Speed Value Words
+					Tooltip: Whether to include value words (such as ‘weak’, ‘fast’, ‘average’, et cetera) in knockback/speed tooltips
+				}
+
 				KnockbackDisplay: {
 					Label: Display Improved Knockback Stats
 					Tooltip: Whether to improve the knockback tooltip
