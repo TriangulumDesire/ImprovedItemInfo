@@ -44,6 +44,11 @@ namespace ImprovedItemInfo.Items.Globals
 
             foreach (TooltipLine tooltip in tooltips)
             {
+                if (tooltip?.Name is null || tooltip?.Text is null)
+                {
+                    continue;
+                }
+
                 if (!tooltip.Name.StartsWith(ClickEffectTooltipStem))
                 {
                     continue;

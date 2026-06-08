@@ -53,8 +53,18 @@ namespace ImprovedItemInfo.Items.Globals
 
             Player player = Main.player[item.playerIndexTheItemIsReservedFor];
 
+            if (player is null)
+            {
+                return;
+            }
+
             foreach (TooltipLine tooltip in tooltips)
             {
+                if (tooltip?.Name is null || tooltip?.Text is null)
+                {
+                    continue;
+                }
+
                 if (!tooltip.Name.Equals(CriticalChanceTooltipName))
                 {
                     continue;
