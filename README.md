@@ -51,6 +51,10 @@ Translation credits:
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* v1.5.1:  
+  * Add missing locale entries.  
+  * Add extra null-reference checks.  
+
 * v1.5.0:  
   * Add configuration options for displaying value words and deltas.  
 
