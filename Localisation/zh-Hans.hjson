@@ -115,7 +115,7 @@ Mods: {
 
 				MiningSpeedDisplay: {
 					Label: 显示挖矿速度统计数据
-					Tooltip: 镐、斧头和锤子的采矿速度工具提示的显示格式（选项有：禁用、仅采矿速度、仅每秒命中数、以及采矿速度和每秒命中数）
+					Tooltip: 镐、斧头和锤子的采矿速度工具提示的显示格式
 				}
 
 				ProjectileVelocityDisplay: {
@@ -136,10 +136,26 @@ Mods: {
 
 			FormatMode: {
 				Tooltip: 格式模式
-				None.Label: 没有任何
-				MiningSpeedOnly.Label: 仅挖矿速度
-				HitsPerSecondOnly.Label: 仅每秒点击次数
-				BothMiningSpeedAndHitsPerSecond.Label: 挖矿速度和每秒点击量
+
+				None: {
+					Label: 没有任何
+					Tooltip: 禁用挖矿速度提示
+				}
+
+				MiningSpeedOnly: {
+					Label: 仅挖矿速度
+					Tooltip: 将挖矿速度显示为挥动物品所需的时间
+				}
+
+				HitsPerSecondOnly: {
+					Label: 仅每秒点击次数
+					Tooltip: 将挖矿速度显示为每秒的点击次数
+				}
+
+				BothMiningSpeedAndHitsPerSecond: {
+					Label: 挖矿速度和每秒点击量
+					Tooltip: 显示挖矿速度时，需同时考虑挥动物品所需的时间和每秒攻击次数
+				}
 			}
 		}
 	}

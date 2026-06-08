@@ -115,7 +115,7 @@ Mods: {
 
 				MiningSpeedDisplay: {
 					Label: Affichage de la Statistiques de Vitesse de Minage
-					Tooltip: Permet de choisir l'affichage du format de l'info-bulle pour la Vitesse de Minage concernant les Pioches, Haches et Marteaux (Les options sont: Désactivé / Vitesse de Minage seulement / Coups par Seconde seulement / les Deux en même temps)
+					Tooltip: Permet de choisir l'affichage du format de l'info-bulle pour la Vitesse de Minage concernant les Pioches, Haches et Marteaux
 				}
 
 				ProjectileVelocityDisplay: {
@@ -136,10 +136,26 @@ Mods: {
 
 			FormatMode: {
 				Tooltip: Mode Format
-				None.Label: Désactivé
-				MiningSpeedOnly.Label: Vitesse de Minage seulement
-				HitsPerSecondOnly.Label: Coups par Seconde seulement
-				BothMiningSpeedAndHitsPerSecond.Label: Vitesse de Minage ET Coups par Seconde
+
+				None: {
+					Label: Désactivé
+					Tooltip: Désactiver l'infobulle de vitesse d'extraction
+				}
+
+				MiningSpeedOnly: {
+					Label: Vitesse de Minage seulement
+					Tooltip: Afficher la vitesse d'extraction sous forme de temps nécessaire pour effectuer un mouvement avec l'objet
+				}
+
+				HitsPerSecondOnly: {
+					Label: Coups par Seconde seulement
+					Tooltip: Afficher la vitesse d'extraction sous forme de nombre de coups par seconde
+				}
+
+				BothMiningSpeedAndHitsPerSecond: {
+					Label: Vitesse de Minage ET Coups par Seconde
+					Tooltip: Afficher la vitesse d'extraction sous forme de temps nécessaire pour effectuer un mouvement avec l'objet et de nombre de coups par seconde
+				}
 			}
 		}
 	}

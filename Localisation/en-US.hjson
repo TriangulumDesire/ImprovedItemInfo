@@ -100,7 +100,7 @@ Mods: {
 
 				IncludeValueWords: {
 					Label: Include Knockback/Speed Value Words
-					Tooltip: Whether to include value words (such as ëweakí, ëfastí, ëaverageí, et cetera) in knockback/speed tooltips
+					Tooltip: Whether to include value words (such as ‚Äúweak‚Äù, ‚Äúfast‚Äù, ‚Äúaverage‚Äù, et cetera) in knockback/speed tooltips
 				}
 
 				KnockbackDisplay: {
@@ -115,7 +115,7 @@ Mods: {
 
 				MiningSpeedDisplay: {
 					Label: Display Mining Speed Stats
-					Tooltip: Display format of mining speed tooltip for pickaxes, axes, and hammers (options are: disable, mining speed only, hits per second only, and both mining speed and hits per second)
+					Tooltip: Display format of mining speed tooltip for pickaxes, axes, and hammers
 				}
 
 				ProjectileVelocityDisplay: {
@@ -136,10 +136,26 @@ Mods: {
 
 			FormatMode: {
 				Tooltip: Format Mode
-				None.Label: None
-				MiningSpeedOnly.Label: Mining Speed Only
-				HitsPerSecondOnly.Label: Hits Per Second Only
-				BothMiningSpeedAndHitsPerSecond.Label: Both Mining Speed and Hits Per Second
+
+				None: {
+					Label: None
+					Tooltip: Disable mining speed tooltip
+				}
+
+				MiningSpeedOnly: {
+					Label: Mining Speed Only
+					Tooltip: Display mining speed as the time it takes to swing the item
+				}
+
+				HitsPerSecondOnly: {
+					Label: Hits Per Second Only
+					Tooltip: Display mining speed as the amount of hits per second
+				}
+
+				BothMiningSpeedAndHitsPerSecond: {
+					Label: Both Mining Speed and Hits Per Second
+					Tooltip: Display mining speed as both the time it takes to swing the item and amount of hits per second
+				}
 			}
 		}
 	}

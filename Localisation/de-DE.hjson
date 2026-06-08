@@ -115,7 +115,7 @@ Mods: {
 
 				MiningSpeedDisplay: {
 					Label: Statistiken zur Mining-Geschwindigkeit anzeigen
-					Tooltip: Anzeigeformat des Tooltips zur Abbaugeschwindigkeit für Spitzhacken, Äxte und Hämmer (Optionen sind: Deaktivieren, nur Abbaugeschwindigkeit, nur Treffer pro Sekunde und sowohl Abbaugeschwindigkeit als auch Treffer pro Sekunde)
+					Tooltip: Anzeigeformat des Tooltips zur Abbaugeschwindigkeit für Spitzhacken, Äxte und Hämmer
 				}
 
 				ProjectileVelocityDisplay: {
@@ -136,10 +136,26 @@ Mods: {
 
 			FormatMode: {
 				Tooltip: Formatmodus
-				None.Label: Keiner
-				MiningSpeedOnly.Label: Nur Mining-Geschwindigkeit
-				HitsPerSecondOnly.Label: Nur Treffer pro Sekunde
-				BothMiningSpeedAndHitsPerSecond.Label: Sowohl Mining-Geschwindigkeit als auch Treffer pro Sekunde
+
+				None: {
+					Label: Keiner
+					Tooltip: Tooltip zur Abbaugeschwindigkeit deaktivieren
+				}
+
+				MiningSpeedOnly: {
+					Label: Nur Mining-Geschwindigkeit
+					Tooltip: Die Abbaugeschwindigkeit wird als die Zeit angezeigt, die zum Schwingen des Gegenstands benötigt wird
+				}
+
+				HitsPerSecondOnly: {
+					Label: Nur Treffer pro Sekunde
+					Tooltip: Die Abbaugeschwindigkeit wird als Anzahl der Treffer pro Sekunde angezeigt
+				}
+
+				BothMiningSpeedAndHitsPerSecond: {
+					Label: Sowohl Mining-Geschwindigkeit als auch Treffer pro Sekunde
+					Tooltip: Die Abbaugeschwindigkeit soll sowohl die Zeit, die zum Schwingen des Gegenstands benötigt wird, als auch die Anzahl der Schläge pro Sekunde anzeigen
+				}
 			}
 		}
 	}
