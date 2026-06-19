@@ -4,8 +4,12 @@ It essentially shows how the weapon is affected by modifiers and accessories, as
   
 It is a spiritual successor to [ItemStats+](https://github.com/Xahlicem/XItemStats) (by Xahlicem) rewritten completely from scratch.  
   
-This mod should work with all modded items, and it has cross-mod support with Clicker Class and Calamity. Thorium bard and healer support is planned.  
-
+This mod should work with most mods (including large ones such as Calamity, Thorium, and Spirit).  
+  
+The following mods have explicit support:  
+* Clicker class (clicks to activate click effect).  
+* TNTerraria (accounts for the global explosive damage nerf).  
+  
 If you have anything you wish to contribute or want to fork this mod, you're more than welcome to.  
 
 ## Localisation.
@@ -19,7 +23,7 @@ Supported languages:
 Language translations might not be 100% accurate. Please report any incorrect translations as an issue.  
 
 Translation credits:
-* French: @Xenophact
+* French: @Xenophact  
 
 ## To do.
 * Localisation for the remaining languages.  
@@ -51,6 +55,9 @@ Translation credits:
 |  |  | +15% knockback | +15% knockback |
 
 ## Changelog:  
+* 1.5.2:  
+  * Add support for TNTerraria mod.  
+
 * v1.5.1:  
   * Add missing locale entries.  
   * Add extra null-reference checks.  

@@ -25,8 +25,18 @@ namespace ImprovedItemInfo.Items.Globals
             { DamageClass.Throwing, DamageClass.Throwing },
         };
 
+        private static readonly HashSet<DamageClass> _demolitionClassDamageClasses = [];
+        private static readonly Player _blankPlayer = new();
+
+        private static bool _hasLoadedModDamageClasses = false;
+
         public ImprovedCriticalChanceTooltip()
         {
+            if (_hasLoadedModDamageClasses)
+            {
+                return;
+            }
+
             if (ModLoader.TryGetMod("ClickerClass", out _))
             {
                 if (ModContent.TryFind("ClickerClass/ClickerDamage", out DamageClass clickerDamage))
@@ -42,6 +52,18 @@ namespace ImprovedItemInfo.Items.Globals
                     _damageClassLookup.Add(rogueDamage, rogueDamage);
                 }
             }
+
+            if (ModLoader.TryGetMod("DemolisherClass", out _))
+            {
+                _demolitionClassDamageClasses.UnionWith(ModContent.GetContent<DamageClass>());
+
+                foreach (var demolitionDamageClass in _demolitionClassDamageClasses)
+                {
+                    _damageClassLookup.Add(demolitionDamageClass, demolitionDamageClass);
+                }
+            }
+
+            _hasLoadedModDamageClasses = true;
         }
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -82,6 +104,7 @@ namespace ImprovedItemInfo.Items.Globals
                     const int BaseCriticalChance = 4;
                     int totalCriticalChance = GetTotalCriticalChanceFromTooltip(tooltipData);
                     int initialCriticalChance = 0;
+                    int criticalChanceDeltaOffset = 0;
 
                     string itemModName = item.ModItem?.Mod?.Name;
 
@@ -91,6 +114,12 @@ namespace ImprovedItemInfo.Items.Globals
                         unmodifiedItem.CloneDefaults(item.type);
 
                         initialCriticalChance = unmodifiedItem.crit + BaseCriticalChance;
+
+                        if (_demolitionClassDamageClasses.Contains(item.DamageType))
+                        {
+                            int baseNerfedCriticalChanceAmount = _blankPlayer.GetWeaponCrit(unmodifiedItem);
+                            criticalChanceDeltaOffset = unmodifiedItem.crit - baseNerfedCriticalChanceAmount + BaseCriticalChance;
+                        }
                     }
                     else
                     {
@@ -108,7 +137,7 @@ namespace ImprovedItemInfo.Items.Globals
                         initialCriticalChance = totalCriticalChance - classCriticalChance - item.crit + BaseCriticalChance;
                     }
 
-                    int criticalChanceDelta = totalCriticalChance - initialCriticalChance;
+                    int criticalChanceDelta = totalCriticalChance - initialCriticalChance + criticalChanceDeltaOffset;
 
                     if (criticalChanceDelta != 0)
                     {

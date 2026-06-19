@@ -13,6 +13,26 @@ namespace ImprovedItemInfo.Items.Globals
     {
         private const string DamageTooltipName = "Damage";
 
+        private static readonly HashSet<DamageClass> _demolitionClassDamageClasses = [];
+        private static readonly Player _blankPlayer = new();
+
+        private static bool _hasLoadedModDamageClasses = false;
+
+        public ImprovedDamageTooltip()
+        {
+            if (_hasLoadedModDamageClasses)
+            {
+                return;
+            }
+
+            if (ModLoader.TryGetMod("DemolisherClass", out _))
+            {
+                _demolitionClassDamageClasses.UnionWith(ModContent.GetContent<DamageClass>());
+            }
+
+            _hasLoadedModDamageClasses = true;
+        }
+
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if (!ImprovedItemInfo.IsDamageImproved || item.damage <= 0 || Main.netMode == NetmodeID.Server)
@@ -44,8 +64,16 @@ namespace ImprovedItemInfo.Items.Globals
                     Item unmodifiedItem = new();
                     unmodifiedItem.CloneDefaults(item.type);
 
+                    int damageDeltaOffset = 0;
+
+                    if (_demolitionClassDamageClasses.Contains(item.DamageType))
+                    {
+                        int baseNerfedDamageAmount = _blankPlayer.GetWeaponDamage(unmodifiedItem);
+                        damageDeltaOffset = unmodifiedItem.damage - baseNerfedDamageAmount;
+                    }
+
                     int totalDamage = GetTotalDamageFromTooltip(tooltipData);
-                    int damageDelta = totalDamage - unmodifiedItem.damage;
+                    int damageDelta = totalDamage - unmodifiedItem.damage + damageDeltaOffset;
 
                     if (damageDelta != 0)
                     {
