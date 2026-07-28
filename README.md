@@ -10,6 +10,9 @@ The following mods have explicit support:
 * Clicker class (clicks to activate click effect).  
 * TNTerraria (accounts for the global explosive damage nerf).  
   
+Known incompatibilities:
+* Universal Slider: tooltips for some modified stats (such as item use speed and knockback) might display incorrect values. However, this is only visual; the items are still modified by the sliders correctly.
+  
 If you have anything you wish to contribute or want to fork this mod, you're more than welcome to.  
 
 ## Localisation.
